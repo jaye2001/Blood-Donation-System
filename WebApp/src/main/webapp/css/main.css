@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* ----------------------------------------------Nav Bar -------------------------------------------------------------- */
+.navbar {
+    background-color: #000; /* Black background */
+    border-bottom: 3px solid #e60000; /* Red bottom border */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff; /* White text for nav links */
+}
+
+.navbar-dark .navbar-brand {
+    color: #fff; /* White text for brand */
+}
+
+
+/* ----------------------------------------------Footer Section -------------------------------------------------------------- */
+
+
+footer {
+    background-color: #000; /* Same as navbar for consistency */
+    color: #fff;
+}
+
+footer h5 {
+    color: #fff; /* White color for headings in footer */
+    margin-bottom: 0.5rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+footer .social-icons {
+    margin-bottom: 1rem;
+}
+
+footer .social-icons a {
+    color: #fff; /* White color for social icons */
+    font-size: 1.4rem; /* Adjust the size as needed */
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #e60000; /* Color change on hover */
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 768px) {
+    footer .social-icons {
+        margin-top: 1rem;
+    }
+    
+    footer .col-md-8, footer .col-md-4 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    footer p {
+        text-align: center;
+    }
+}
+
+/* Icon adjustments */
+footer i {
+    margin-right: 0.5rem;
+}
+
+/* Adjust the padding for the footer to give more space */
+footer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+
+footer h5 {
+    color: #fff; /* White color for headings in footer */
+    margin-bottom: 0.5rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin: 0.5rem 0; /* Adjust spacing around paragraphs */
+}
+
+footer svg {
+    fill: currentColor; /* Icon color will be white */
+    width: 1em
+
