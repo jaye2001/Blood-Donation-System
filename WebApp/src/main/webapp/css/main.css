@@ -95,5 +95,23 @@ footer p {
 
 footer svg {
     fill: currentColor; /* Icon color will be white */
-    width: 1em
+    width: 1em;
+}
+
+
+/* Additional styling for navbar profile icon */
+.navbar-icon {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    line-height: 1; 
+}
+
+.bi-person {
+    fill: #fff; /* White color for the icon */
+    transition: fill 0.3s ease; /* Transition for hover effect */
+}
+
+.navbar-icon:hover .bi-person {
+    fill: #e60000; /* Red color on hover */
+}
 
