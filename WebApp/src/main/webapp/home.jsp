@@ -34,9 +34,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Dashbord.jsp">Dashboard</a>
-                </li>
+
             </ul>
         </div>
         <a href="login.jsp" class="navbar-icon">
