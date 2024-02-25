@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
     <link href="css/home.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/Donor.css" rel="stylesheet">
 </head>
 <body>
 
@@ -32,6 +33,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Dashbord.jsp">Dashboard</a>
                 </li>
             </ul>
         </div>

@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6; /* Adjust the color to match the image background */
+    margin: 0;
+    padding-top: 56px; /* Adjust this value to the height of your fixed navbar */
+}
+
+/* This will fix the navbar to the top of the page */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030; /* Ensure the navbar stays on top of other content */
+}
+
+/* Center the form container within a flexbox */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 56px); /* Adjust to the height of your navbar */
+}
+
+.containerX {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+   
+}
+
+.title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.user-details .input-box {
+    margin-bottom: 15px;
+}
+
+.user-details .input-box .details {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.user-details .input-box input[type="text"],
+.user-details .input-box input[type="date"],
+.user-details .input-box input[type="email"],
+.user-details .input-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ebebeb;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.user-details .input-box input[type="text"]:focus,
+.user-details .input-box input[type="date"]:focus,
+.user-details .input-box input[type="email"]:focus,
+.user-details .input-box input[type="password"]:focus {
+    border-bottom-color: #8e44ad; /* Adjust the color to match the image */
+}
+
+.gender-details .gender-title {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.gender-details .category label {
+    display: inline-block;
+    margin-right: 15px;
+    cursor: pointer;
+    color: #666;
+}
+
+.gender-details .category .dot {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #d8d8d8; /* Unselected background color */
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.gender-details .category input[type="radio"]:checked + .dot {
+    background-color: #8e44ad; /* Selected dot color */
+}
+
+.button input[type="submit"] {
+    background-color: #8e44ad; /* Adjust the color to match the button in the image */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button input[type="submit"]:hover {
+    background-color: #732d91; /* Adjust for hover state */
+}
