@@ -1,15 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Admin Dashboard</title>
-    <!-- Include Bootstrap CSS -->
+    <title>Add Admin</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Include FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <!-- Link to the custom CSS for dashboard tiles -->
-    <link rel="stylesheet" href="css/dash.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet"  href="css/addadmin.css"> 
+     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
@@ -76,79 +72,38 @@
     </div>
 </nav>
 
-<!-- Main Content Area -->
-<div class="container-fluid">
-    <div class="row">
-        <!-- Main content -->
-        <main role="main" class="col-12">
-            <div class="pt-2 pb-2 mb-3">
-                <h1 class="h2">Admin Dashboard</h1>
-                <hr>
-            </div>
-            <!-- Clickable Tiles -->
-            <div class="row">
-				 <div class="col-lg-3 col-md-6">
-                	<a href="AddAdmin.jsp">
-                    	<div class="dashboard-tile" >
-                        	<h4>Add Admin</h4>
-                   		 </div>
-               		 </a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                	<a href="#">
-                    	<div class="dashboard-tile" >
-                        	<h4>Update Admin</h4>
-                   		 </div>
-               		 </a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                	<a href="AddDonor.jsp">
-                    	<div class="dashboard-tile" >
-                        	<h4>Register Donor</h4>
-                   		 </div>
-               		 </a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                	<a href="#">
-                    	<div class="dashboard-tile" >
-                        	<h4>Update Donor</h4>
-                   		 </div>
-               		 </a>
-                </div>
-               <div class="col-lg-3 col-md-6">
-                	<a href="#">
-                    	<div class="dashboard-tile" >
-                        	<h4>Blood Stock</h4>
-                   		 </div>
-               		 </a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                	<a href="reqDonor.jsp">
-                    	<div class="dashboard-tile" >
-                        	<h4>Request From Donot</h4>
-                   		 </div>
-               		 </a>
-                </div>
-               <div class="col-lg-3 col-md-6">
-                	<a href="#">
-                    	<div class="dashboard-tile" >
-                        	<h4>#</h4>
-                   		 </div>
-               		 </a>
-                </div>
-                               <div class="col-lg-3 col-md-6">
-                	<a href="#">
-                    	<div class="dashboard-tile" >
-                        	<h4>#</h4>
-                   		 </div>
-               		 </a>
-                </div>
-            </div>
-        </main>
-    </div>
+<!-- Add Admin Form -->
+<div class="container">
+    <h2>Add Admin</h2>
+    <form id="addAdminForm">
+        <div class="form-group">
+            <label for="adminName">Admin Name</label>
+            <input type="text" class="form-control" id="adminName" name="adminName" required>
+        </div>
+        <div class="form-group">
+            <label for="adminEmail">Email</label>
+            <input type="email" class="form-control" id="adminEmail" name="adminEmail" required>
+        </div>
+        <div class="form-group">
+            <label for="adminMobile">Mobile No</label>
+            <input type="tel" class="form-control" id="adminMobile" name="adminMobile" required>
+        </div>
+        <div class="form-group">
+            <label for="adminUsername">Username</label>
+            <input type="text" class="form-control" id="adminUsername" name="adminUsername" required>
+        </div>
+        <div class="form-group">
+            <label for="adminPassword">Password</label>
+            <input type="password" class="form-control" id="adminPassword" name="adminPassword" required>
+            <small id="passwordHelpBlock" class="form-text text-muted">
+                <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
+            </small>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>
 
-
+<script src="JS/addAdmin.js"></script> 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -1,27 +1,19 @@
-<script>
-  // Wait for the DOM to be loaded before attaching the event handler
-  document.addEventListener('DOMContentLoaded', function(event) {
-
-    // Function to validate the login form
+document.addEventListener('DOMContentLoaded', function(event) {
     function validateLoginForm() {
-      // Get the values from the input fields
-      var username = document.getElementById('username').value.trim();
-      var password = document.getElementById('password').value.trim();
+        var username = document.getElementById('username').value.trim();
+        var password = document.getElementById('password').value.trim();
 
+        if (username === "") {
+            alert('Username is required.');
+            return false; 
+        }
 
-      if (username === "") {
-        alert('Username is required.');
-        return false; 
-      }
+        if (password === "") {
+            alert('Password is required.');
+            return false; 
+        }
 
-      if (password === "") {
-        alert('Password is required.');
-        return false; // Prevent form submission
-      }
-
-
-      return true;
+        return true;
     }
-
-
-</script>
+    // Attach the validateLoginForm function to the form's submit event or button click event as needed.
+});

@@ -1,27 +1,51 @@
-html, body {
-    height: 100%;
-    background-color: #f4f4f4; /* Light grey background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.card {
-    margin-top: -2rem; /* Adjust this value as needed */
+.login-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
 }
 
-.card-body {
-    padding: 2rem;
-}
-
-.form-label {
-    font-weight: 600;
-}
-
-.btn-danger {
-    background-color: #e60000; /* Blood Bank theme red */
-    border: none;
-}
-
-.btn-danger:hover {
-    background-color: #cc0000; /* A darker shade for hover state */
+.login-btn:hover {
+    background-color: #0056b3;
 }

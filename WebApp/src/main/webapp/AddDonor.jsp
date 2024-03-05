@@ -32,7 +32,7 @@
                         Admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuAdmin">
-                        <a class="dropdown-item" href="#">Add Admin</a>
+                        <a class="dropdown-item" href="AddAdmin.jsp">Add Admin</a>
                         <a class="dropdown-item" href="#">Update Admin</a>
                         <!-- Additional sub-items here -->
                     </div>
