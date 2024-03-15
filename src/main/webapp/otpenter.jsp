@@ -11,10 +11,10 @@
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="card p-5">
             <h2 class="card-title text-center">Login</h2>
-            <form action="LoginServlet" method="post" onsubmit="return validateLoginForm()">
+            <form action="OtpCheckServlet" method="post" onsubmit="return validateLoginForm()">
                 <div class="form-group">
-                    <label for="username">Nic:</label>
-                    <input type="text" class="form-control" id="username" name="NIC" required>
+                    <label for="username">OTP:</label>
+                    <input type="text" class="form-control" id="username" name="OTP" required>
                 </div>
                 <!-- <div class="form-group">
                     <label for="password">Password:</label>
