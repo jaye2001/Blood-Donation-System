@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="Dashbord.jsp">Dashboard</a>
+                    <a class="nav-link" href="Dashboard.jsp">Dashboard</a>
                 </li>
 
                 <!-- Admin Dropdown -->
@@ -77,37 +77,46 @@
 
   	<div class="containerX">
         <div class ="title">Donor Details</div>	
-        	<form action="#">
+        	<form action="AddDonerServlet" method = "post" >
         	<div class="user-details">
         	<div class="input-box">
-        		<span class="details">Full Name</span>
-        		<input type="text" placeholder="Enter Your Full Name" required>
+        		<span class="details">First Name</span>
+        		<input type="text" placeholder="Enter Your Full Name" required name="Fname">
+        	</div>
+        	<div class="input-box">
+        		<span class="details">Last Name</span>
+        		<input type="text" placeholder="Enter Your Full Name" required name="Lname">
         	</div>
         	
         	<div class="input-box">
               <span class="details">NIC</span>
-              <input type="text" placeholder="Enter Your NIC" required>
+              <input type="text" placeholder="Enter Your NIC" required name="NIC">
    		   </div>
         	
         	<div class="input-box">
         		<span class="details">Date of Birth Day</span>
-        		<input type="date" placeholder="" required>
+        		<input type="date" placeholder="" required name="DOB">
+        	</div>
+        	
+        	<div class="input-box">
+        		<span class="details">Weight</span>
+        		<input type="text" placeholder="" required name="weight">
         	</div>
         	
         	<div class="input-box">
         		<span class="details">Email Address</span>
-        		<input type="text" placeholder="Enter Your Email" required>
+        		<input type="text" placeholder="Enter Your Email" required name="email">
         	</div>
         	
         	<div class="input-box">
        		 <span class="details">Mobile Phone</span>
-        	 <input type="text" placeholder="Enter Your Mobile Phone Number" required>
+        	 <input type="text" placeholder="Enter Your Mobile Phone Number" required name="Mobilephn">
     	   </div>
         	
         	
         	<div class="input-box">
         		<span class="details">Address</span>
-        		<input type="text" placeholder="Enter Your Address" required>
+        		<input type="text" placeholder="Enter Your Address" required name="address">
         	</div>
         	
 
