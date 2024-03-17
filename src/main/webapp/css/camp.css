@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+
+
+/* Upcoming Campaigns Section */
+.upcoming-campaigns {
+    background-color: #f0f2f5; 
+    padding: 2rem 0; 
+}
+
+.upcoming-campaigns h2 {
+    color: #333; /* Dark color for the section title */
+}
+
+/* Recent Campaigns Section */
+.recent-campaigns {
+    background-color: #f7f9fc; 
+    padding: 2rem 0; 
+}
+
+.recent-campaigns h2 {
+    color: #333; 
+}
+
+
