@@ -9,6 +9,8 @@
 </head>
 <body>
 
+
+
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
@@ -37,6 +39,8 @@
         </div>
     </div>
 </nav>
+
+<input type="hidden" id ="status" value="<%= request.getAttribute("status") %>">
 
 <div class="containerX">
     <div class="title">Blood Campaign Details</div>    
@@ -85,6 +89,16 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+	
+<script type="text/javascript">
+	var status = document.getElementById("status").value;
+	if(status == "success"){
+		swal("Campaign registered successfully");
+	}
+	
+</script>	
 
 </body>
 </html>

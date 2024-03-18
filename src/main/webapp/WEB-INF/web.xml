@@ -9,4 +9,14 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>campServlet</display-name>
+    <servlet-name>campServlet</servlet-name>
+    <servlet-class>servlets.campServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>campServlet</servlet-name>
+    <url-pattern>/campServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
