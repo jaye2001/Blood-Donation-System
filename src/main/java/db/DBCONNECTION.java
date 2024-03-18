@@ -17,9 +17,9 @@ public class DBCONNECTION {
 		String host, port, databaseName, userName, password;
         host = "mysql-16d8522a-greensuper924-d7af.a.aivencloud.com";
         port = "11299";
-        databaseName = "defaultdb";
-        userName = "avnadmin";
-        password = "AVNS_j3voztLVFipG207G1bU";
+        databaseName = "Blood_Donation_Bank";
+        userName = "Blood_Bank";
+        password = "AVNS_J-2qlbAahH3561hSTyr";
 	  
 	        Class.forName("com.mysql.cj.jdbc.Driver"); 
 	        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + 
