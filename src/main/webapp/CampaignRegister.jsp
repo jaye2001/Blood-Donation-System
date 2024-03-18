@@ -40,31 +40,39 @@
 
 <div class="containerX">
     <div class="title">Blood Campaign Details</div>    
-    <form action="#">
+    <form method ="post" action="campRegister">
         <div class="user-details">
             <div class="input-box">
                 <span class="details">Campaign Name</span>
-                <input type="text" placeholder="Enter Campaign Name" required>
+                <input type="text" name="name" placeholder="Enter Campaign Name" required>
             </div>
             <div class="input-box">
                 <span class="details">Location</span>
-                <input type="text" placeholder="Enter Location" required>
+                <input type="text" name="location"  placeholder="Enter Location" required>
             </div>
             <div class="input-box">
                 <span class="details">Area</span>
-                <input type="text" placeholder="Enter Area" required>
+                <input type="text" name="area"  placeholder="Enter Area" required>
             </div>
             <div class="input-box">
                 <span class="details">Date</span>
-                <input type="date" placeholder="" required>
+                <input type="date" name="date"  placeholder="" required>
             </div>
             <div class="input-box">
-                <span class="details">Time</span>
-                <input type="time" placeholder="" required>
+                <span class="details">Starting time</span>
+                <input type="time" name="STime"  placeholder="" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Ending time</span>
+                <input type="time" name="FTime"  placeholder="" required>
             </div>
             <div class="input-box">
                 <span class="details">Organizers</span>
-                <input type="text" placeholder="Enter Organizers" required>
+                <input type="text" name="organizer"  placeholder="Enter Organizers" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Most needed Blood group</span>
+                <input type="text" name="bloodGroup"  placeholder="Enter Blood group" required>
             </div>
         </div>
         <div class="button">
