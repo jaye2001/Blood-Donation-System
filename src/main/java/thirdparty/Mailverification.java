@@ -7,8 +7,8 @@ import javax.mail.internet.MimeMessage;
   
 public class Mailverification {  
 public static void send(String to,String subject,String msg, boolean isHtml){  
-	final String user="greensuper924@gmail.com"; 
-	final String pass="ietdmakzppxykgdu";  
+	final String user="blood.bank.automate@gmail.com"; 
+	final String pass="jumy xfet vtum hhqu";  
   
 		//Get the session object    
 		Properties props = new Properties();
