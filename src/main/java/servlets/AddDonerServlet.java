@@ -2,13 +2,19 @@ package servlets;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.Part;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,6 +35,7 @@ import thirdparty.*;
 /**
  * Servlet implementation class AddDonerServlet
  */
+@MultipartConfig
 @WebServlet("/AddDonerServlet")
 public class AddDonerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -47,9 +54,13 @@ public class AddDonerServlet extends HttpServlet {
 			con = DBCONNECTION.initializeDatabase();
 							
 			String dateString = request.getParameter("DOB");
-			String weightString = request.getParameter("weight");				
-				
+			String weightString = request.getParameter("weight");	
+			Part filePart = request.getPart("pht");
+			String imagePath = request.getServletContext().getRealPath("/images/Users") + File.separator;
+	        String pathString = imagePath + request.getParameter("NIC") + ".jpg";
 			
+	        
+	        
 			
 			int weight = Integer.parseInt(weightString);
 			
@@ -112,6 +123,25 @@ public class AddDonerServlet extends HttpServlet {
 				
 				statement4.executeUpdate();
 				statement4.close();
+				
+				
+				if (filePart != null) {
+		        	InputStream fileContent = filePart.getInputStream();
+		        	try (OutputStream outputStream = new FileOutputStream(pathString)) {
+						int read = 0;
+						final byte[] bytes = new byte[1024];
+						while ((read = fileContent.read(bytes)) != -1) {
+						    outputStream.write(bytes, 0, read);
+						}
+					}
+		        	
+		        	PreparedStatement stmtimage = con.prepareStatement("Update Person SET phtpath = ? where NIC = ?");
+		        	stmtimage.setString(1, pathString);
+		        	stmtimage.setString(2, request.getParameter("NIC"));
+		        	stmtimage.executeUpdate();
+		        	stmtimage.close();		        	
+		        }
+				
 				
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Add_Donor_City.jsp");
 				requestDispatcher.include(request, response);
