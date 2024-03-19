@@ -1,128 +1,90 @@
 package servlets;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.sql.ResultSet;
-
-
-
-
 
 import db.DBCONNECTION;
 import thirdparty.*;
 
 /**
- * Servlet implementation class AddDonerServlet
+ * Servlet implementation class AddAdminServlet
  */
 @WebServlet("/AddAdminServlet")
 public class AddAdminServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		response.setContentType("text/html");  
-	    PrintWriter out = response.getWriter();
-	    Connection con;
-	    
-	    try {
-			con = DBCONNECTION.initializeDatabase();
-							
-			String dateString = request.getParameter("DOB");
-			String weightString = request.getParameter("weight");				
-				
-			
-			
-			int weight = Integer.parseInt(weightString);
-			
-			java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
-			java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-			LocalDate yearuser = sqlDate.toLocalDate();
-			
-			LocalDate date2 = LocalDate.now();
-			
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
-			String yearString = formatter.format(date2);
-			String yearuserString = formatter.format(yearuser);
-			
-			int year = Integer.parseInt(yearString);
-			int yearuserint = Integer.parseInt(yearuserString);
-			
-			if (year - yearuserint < 18) {
-				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Add_Donor.jsp");
-				requestDispatcher.include(request, response);
-			}
-			
-			else {
-				
-				PreparedStatement statement1 = con.prepareStatement("insert into Person (NIC,Fname,Lname,email,password,DOB,type,gender) values (?,?,?,?,?,?,?,?)");
-				
-				statement1.setString(1, request.getParameter("NIC"));
-				statement1.setString(2, request.getParameter("Fname"));
-				statement1.setString(3, request.getParameter("Lname"));
-				statement1.setString(4, request.getParameter("email"));
-				statement1.setString(5, "otp");
-				statement1.setDate(6, sqlDate);
-				statement1.setString(7, "donor");
-				statement1.setString(8, request.getParameter("gender"));
-				
-				System.out.println(request.getParameter("NIC"));
-				
-				statement1.executeUpdate();
-				statement1.close();
-				
-				PreparedStatement statement2 = con.prepareStatement("insert into Person_P_A (NIC,type,value) values (?,?,?)");
-				statement2.setString(1, request.getParameter("NIC"));
-				statement2.setString(2, "phn");
-				statement2.setString(3, request.getParameter("Mobilephn"));
-				
-				statement2.executeUpdate();
-				statement2.close();
-				
-				PreparedStatement statement3 = con.prepareStatement("insert into Person_P_A (NIC,type,value) values (?,?,?)");
-				statement3.setString(1, request.getParameter("NIC"));
-				statement3.setString(2, "address");
-				statement3.setString(3, request.getParameter("address"));
-				
-				statement3.executeUpdate();
-				statement3.close();
-				
-				PreparedStatement statement4 = con.prepareStatement("insert into Donor (NIC,Blood_Type,weight) values (?,?,?)");
-				statement4.setString(1, request.getParameter("NIC"));
-				statement4.setString(2, request.getParameter("bloodType"));
-				statement4.setInt(3, weight);
-				
-				statement4.executeUpdate();
-				statement4.close();
-				
-			}
-		
-			
-			con.close();
-			
-	    } catch (ClassNotFoundException | SQLException | ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    
-	}
+    private static final long serialVersionUID = 1L;
 
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        Connection con = null;
+        PreparedStatement pstmt = null;
+
+        String fname = request.getParameter("adminFName");
+        String lname = request.getParameter("adminLName");
+        String email = request.getParameter("adminEmail");
+        String password = request.getParameter("adminPassword");
+        String nic = request.getParameter("adminNIC"); 
+        String type = "admin";
+        String mobile = request.getParameter("adminMobile");
+
+        try {
+            con = DBCONNECTION.initializeDatabase();
+            
+            // Insert into Person table
+            String sqlPerson = "INSERT INTO Person (NIC, fname,lname, email, password, type,gender) VALUES (?, ?, ?, ?, ?,?,?)";
+            pstmt = con.prepareStatement(sqlPerson);
+            pstmt.setString(1, nic);
+            pstmt.setString(2, fname);
+            pstmt.setString(3, lname);
+            pstmt.setString(4, email);
+            pstmt.setString(5, password);
+            pstmt.setString(6, type);
+            pstmt.setString(7, "none");
+            
+
+            int rowAffectedPerson = pstmt.executeUpdate();
+            
+         
+            if (rowAffectedPerson > 0) {
+                pstmt.close(); 
+
+                String sqlPersonPA = "INSERT INTO Person_P_A (NIC, type, value) VALUES (?, ?, ?)";
+                pstmt = con.prepareStatement(sqlPersonPA);
+                pstmt.setString(1, nic);
+                pstmt.setString(2, type);
+                pstmt.setString(3, mobile ); 
+
+                pstmt.executeUpdate();
+            }
+
+           
+            out.println("<p>Admin added successfully.</p>");
+
+        } catch (SQLException e) {
+            out.println("<p>Error adding admin: " + e.getMessage() + "</p>");
+            e.printStackTrace();
+        } catch (Exception e) {
+            out.println("<p>Exception: " + e.getMessage() + "</p>");
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (con != null) 
+                  con.close();
+            } catch (SQLException e) {
+                out.println("<p>Exception on closing: " + e.getMessage() + "</p>");
+            }
+        }
+    }
 }
