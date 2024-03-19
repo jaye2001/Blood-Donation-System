@@ -56,8 +56,7 @@ public class AddDonerServlet extends HttpServlet {
 			String dateString = request.getParameter("DOB");
 			String weightString = request.getParameter("weight");	
 			Part filePart = request.getPart("pht");
-			String imagePath = request.getServletContext().getRealPath("/images/Users") + File.separator;
-	        String pathString = imagePath + request.getParameter("NIC") + ".jpg";
+			
 			
 	        
 	        
@@ -126,6 +125,9 @@ public class AddDonerServlet extends HttpServlet {
 				
 				
 				if (filePart != null) {
+					
+					String imagePath = request.getServletContext().getRealPath("/images/") + File.separator;
+			        String pathString = imagePath + request.getParameter("NIC") + ".jpg";
 		        	InputStream fileContent = filePart.getInputStream();
 		        	try (OutputStream outputStream = new FileOutputStream(pathString)) {
 						int read = 0;
