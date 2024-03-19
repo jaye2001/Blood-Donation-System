@@ -113,9 +113,12 @@ public class AddDonerServlet extends HttpServlet {
 				statement4.executeUpdate();
 				statement4.close();
 				
+				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Add_Donor_City.jsp");
+				requestDispatcher.include(request, response);
 			}
 		
-			
+			HttpSession session = request.getSession();
+		    session.setAttribute("nic", request.getParameter("NIC") );
 			con.close();
 			
 	    } catch (ClassNotFoundException | SQLException | ParseException e) {

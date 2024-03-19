@@ -1,5 +1,9 @@
+<%@page import="java.util.List"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.Import"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="classes.Loader" %>
+<%@page import="classes.ProvinceLoader" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -118,9 +122,7 @@
         		<span class="details">Address</span>
         		<input type="text" placeholder="Enter Your Address" required name="address">
         	</div>
-        	
 
-        	
 		<div class="input-box">
 		        <span class="details">Blood Type</span>
 		        <select name="bloodType" required>
