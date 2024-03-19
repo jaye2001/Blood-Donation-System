@@ -81,7 +81,7 @@
 
   	<div class="containerX">
         <div class ="title">Donor Details</div>	
-        	<form action="AddDonerServlet" method = "post" >
+        	<form action="AddDonerServlet" method = "post" enctype="multipart/form-data" >
         	<div class="user-details">
         	<div class="input-box">
         		<span class="details">First Name</span>
@@ -90,6 +90,11 @@
         	<div class="input-box">
         		<span class="details">Last Name</span>
         		<input type="text" placeholder="Enter Your Full Name" required name="Lname">
+        	</div>
+        	
+        	<div class="input-box">
+        		<span class="details">Photo</span>
+        		<input type="file" name="pht" accept="image/*">
         	</div>
         	
         	<div class="input-box">
