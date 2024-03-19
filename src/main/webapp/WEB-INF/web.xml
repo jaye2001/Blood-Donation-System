@@ -19,4 +19,14 @@
     <servlet-name>campServlet</servlet-name>
     <url-pattern>/campServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CampaignPage</display-name>
+    <servlet-name>CampaignPage</servlet-name>
+    <servlet-class>servlets.CampaignPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CampaignPage</servlet-name>
+    <url-pattern>/campaigns</url-pattern>
+  </servlet-mapping>
 </web-app>
