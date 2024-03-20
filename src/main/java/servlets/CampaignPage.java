@@ -39,7 +39,7 @@ public class CampaignPage extends HttpServlet {
 			con = DBCONNECTION.initializeDatabase();
 			Statement stmt = con.createStatement();
 			
-			String query ="select Campaign_ID as id, Campain_name as name, Location, Date, STime from Campaign_Details";
+			String query ="select Campaign_ID as id, Campain_name as name, Location, Date, STime, Image, Description from Campaign_Details";
 
 			ResultSet rs = stmt.executeQuery(query);
 			
@@ -47,7 +47,7 @@ public class CampaignPage extends HttpServlet {
 			
 			while(rs.next()) {
 				Campaign campaign = new Campaign();
-				campaign.Set_Values(rs.getInt("id"),rs.getString("name"),rs.getString("Date"),rs.getString("STime"),rs.getString("Location"));
+				campaign.Set_Values(rs.getInt("id"),rs.getString("name"),rs.getString("Date"),rs.getString("STime"),rs.getString("Location"),rs.getString("Image"),rs.getString("Description"));
 				campaigns.add(campaign);
 			}
 			con.close();

@@ -29,4 +29,5 @@
     <servlet-name>CampaignPage</servlet-name>
     <url-pattern>/view-campaigns</url-pattern>
   </servlet-mapping>
+
 </web-app>

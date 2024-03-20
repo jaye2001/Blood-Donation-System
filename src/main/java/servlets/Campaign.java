@@ -7,14 +7,18 @@ public class Campaign {
 	private String date;
 	private String time;
 	private String location;
+	private String image;
+	private String description;
 	
 	
-	public void Set_Values(int _id, String _name, String _date, String _time, String _location) {
+	public void Set_Values(int _id, String _name, String _date, String _time, String _location, String _image, String _description) {
 		id = _id;
 		name = _name;
 		date = _date;
 		time = _time;
 		location = _location;
+		image = _image;
+		description = _description;
 	}
 
 
@@ -41,6 +45,16 @@ public class Campaign {
 	public String getLocation() {
 		return location;
 	}
+	
+	public String getImage() {
+		return image;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	
 	
 	
 	

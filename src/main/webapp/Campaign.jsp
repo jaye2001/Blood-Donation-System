@@ -66,10 +66,10 @@
             <!-- Campaign Card -->
             <div class="col-sm-3" >
                 <div class="card campaign-card" style="width: 18rem">
-                    <img class="card-img-top" src="images/crd7.jpeg" alt="Campaign Image">
+                    <img class="card-img-top" src="images/<%= campaign.getImage() %>" alt="Campaign Image">
                     <div class="card-body">
                         <h5 class="card-title"><%= campaign.getName() %></h5>
-                        <p class="card-text">Gampaha Blood Donation Campaign Organized by Youth Center...</p>
+                        <p class="card-text"><%= campaign.getDescription() %></p>
                         <ul class="list-unstyled">
                             <li><strong>Date :</strong> <%= campaign.getDate() %></li>
                             <li><strong>Time :</strong> <%= campaign.getTime() %></li>

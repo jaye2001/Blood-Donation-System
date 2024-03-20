@@ -44,11 +44,15 @@
 
 <div class="containerX">
     <div class="title">Blood Campaign Details</div>    
-    <form method ="post" action="campRegister">
+    <form method ="post" action="campRegister" enctype="multipart/form-data">
         <div class="user-details">
             <div class="input-box">
                 <span class="details">Campaign Name</span>
                 <input type="text" name="name" placeholder="Enter Campaign Name" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Select Image</span>
+                <input type="file" name="image" required>
             </div>
             <div class="input-box">
                 <span class="details">Location</span>
@@ -75,6 +79,10 @@
                 <span class="details">Most needed Blood group</span>
                 <input type="text" name="bloodGroup"  placeholder="Enter Blood group" required>
             </div>
+            <div class="input-box">
+                <span class="details">Add Description</span>
+                <input type="text" name="description"  placeholder="Description" required>
+            </div>
         </div>
         <div class="button">
             <input type="submit" value="Submit">
@@ -89,13 +97,13 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<link rel="stylesheet" href="alert/dist/sweetalert.css">
 	
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	var status = document.getElementById("status").value;
 	if(status == "success"){
 		swal("Campaign registered successfully");
 	}
 	
-</script>	
+</script> -->	
 
 </body>
 </html>
