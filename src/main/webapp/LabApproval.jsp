@@ -105,6 +105,7 @@
             <tr>
                 <th scope="col">Sample ID</th>
                 <th scope="col">Donor NIC</th>
+                <th scope="col">Blood Type</th>
                 <th scope="col">Date</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
