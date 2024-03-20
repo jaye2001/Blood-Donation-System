@@ -11,12 +11,22 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>UserprofileServlet</display-name>
-    <servlet-name>UserprofileServlet</servlet-name>
-    <servlet-class>servlets.UserprofileServlet</servlet-class>
+     <display-name>campServlet</display-name>
+    <servlet-name>campServlet</servlet-name>
+    <servlet-class>servlets.campServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>UserprofileServlet</servlet-name>
-    <url-pattern>/UserprofileServlet</url-pattern>
+    <servlet-name>campServlet</servlet-name>
+    <url-pattern>/campServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CampaignPage</display-name>
+    <servlet-name>CampaignPage</servlet-name>
+    <servlet-class>servlets.CampaignPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CampaignPage</servlet-name>
+    <url-pattern>/view-campaigns</url-pattern>
   </servlet-mapping>
 </web-app>
