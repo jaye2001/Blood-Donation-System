@@ -20,7 +20,7 @@ public List<Loader> getLoade() throws SQLException {
 		 try {
 			con = DBCONNECTION.initializeDatabase();
 			
-			PreparedStatement st = con.prepareStatement("Select id,name_en from provinces");
+			PreparedStatement st = con.prepareStatement("Select id,Pname_en from provinces");
 			ResultSet rs = st.executeQuery();
 			
 			
