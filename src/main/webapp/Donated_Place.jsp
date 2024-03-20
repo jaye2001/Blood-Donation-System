@@ -1,15 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add Admin</title>
+    <meta charset="UTF-8">
+    <title>Blood Donation Record</title>
+    <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet"  href="css/addadmin.css"> 
-     <link rel="stylesheet" href="css/main.css">
+    <!-- Include Bootstrap Datepicker CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <!-- Include FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Custom styles -->
+    <style>
+        .btn-donated:hover {
+            background-color: red;
+            color: white;
+        }
+        /* Additional custom styles can be added here */
+    </style>
 </head>
 <body>
 
-<!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
 
@@ -72,44 +83,58 @@
     </div>
 </nav>
 
-<!-- Add Admin Form -->
-<div class="container">
-    <h2>Add Admin</h2>
-    <form id="addAdminForm" action="AddAdminServlet" method = "post">
-        <div class="form-group">
-            <label for="adminName">First Name</label>
-            <input type="text" class="form-control" id="adminFName" name="adminFName" required>
+<!-- Blood Donated Form -->
+<div class="container mt-5">
+    <div class="card">
+        <h5 class="card-header">Blood Donated Form</h5>
+        <div class="card-body">
+            <form action="BloodDonatedServlet" method="post">
+                
+                <!-- Donor NIC -->
+                <div class="form-group">
+                    <label for="donorNicInput">Donor NIC</label>
+                    <input type="text" class="form-control" id="donorNicInput" name="donorNIC" placeholder="Enter Donor NIC" required>
+                </div>
+                
+                <!-- Blood Given Location -->
+                <div class="form-group">
+                    <label for="locationInput">Blood Given Location</label>
+                    <input type="text" class="form-control" id="locationInput" name="location" placeholder="Enter Location" required>
+                </div>
+                
+                <!-- Date -->
+                <div class="form-group">
+                    <label for="dateInput">Date</label>
+                    <div class="input-group date" id="datepicker">
+                        <input type="text" class="form-control" id="dateInput" name="date" placeholder="Select Date" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Donated Button -->
+                <button type="submit" class="btn btn-primary btn-donated">Donated</button>
+                
+            </form>
         </div>
-        <div class="form-group">
-            <label for="adminName">Last Name</label>
-            <input type="text" class="form-control" id="adminLName" name="adminLName" required>
-        </div>
-        <div class="form-group">
-            <label for="adminEmail">Email</label>
-            <input type="email" class="form-control" id="adminEmail" name="adminEmail" required>
-        </div>
-        <div class="form-group">
-            <label for="adminMobile">Mobile No</label>
-            <input type="tel" class="form-control" id="adminMobile" name="adminMobile" required>
-        </div>
-        <div class="form-group">
-            <label for="adminNIC">NIC</label>
-            <input type="text" class="form-control" id="adminNIC" name="adminNIC" required>
-        </div>
-        <div class="form-group">
-            <label for="adminPassword">Password</label>
-            <input type="password" class="form-control" id="adminPassword" name="adminPassword" required>
-            <small id="passwordHelpBlock" class="form-text text-muted">
-                <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
-            </small>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 </div>
 
-<script src="JS/addAdmin.js"></script> 
+<!-- Include jQuery and Bootstrap Bundle which includes Popper -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Include Bootstrap Datepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script>
+    // Initialize datepicker
+    $('#datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        todayHighlight: true
+    });
+</script>
+
 </body>
 </html>

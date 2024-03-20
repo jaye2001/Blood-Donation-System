@@ -1,15 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add Admin</title>
+    <meta charset="UTF-8">
+    <title>Lab Approval</title>
+    <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet"  href="css/addadmin.css"> 
-     <link rel="stylesheet" href="css/main.css">
+    <!-- Include FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Custom styles -->
+    <style>
+        .btn-approve { background-color: green; }
+        .btn-approve:hover { background-color: darkgreen; }
+        
+        .btn-reject { background-color: red; }
+        .btn-reject:hover { background-color: darkred; }
+        
+        /* Additional custom styles can be added here */
+    </style>
 </head>
 <body>
 
-<!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
 
@@ -64,7 +75,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuBlood">
                         <a class="dropdown-item" href="#">Blood Stock</a>
                         <a class="dropdown-item" href="#"></a>
-                        <!-- Additional sub-items here -->
+                       
                     </div>
                 </li>
             </ul>
@@ -72,44 +83,44 @@
     </div>
 </nav>
 
-<!-- Add Admin Form -->
-<div class="container">
-    <h2>Add Admin</h2>
-    <form id="addAdminForm" action="AddAdminServlet" method = "post">
-        <div class="form-group">
-            <label for="adminName">First Name</label>
-            <input type="text" class="form-control" id="adminFName" name="adminFName" required>
+<!-- Lab Approval Form -->
+<div class="container mt-5">
+    <h2 class="mb-4">Lab Approval</h2>
+    
+    <!-- Filter by Date -->
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Filter by Date</span>
+                </div>
+                <input type="date" class="form-control" id="filterDate" name="filterDate">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="adminName">Last Name</label>
-            <input type="text" class="form-control" id="adminLName" name="adminLName" required>
-        </div>
-        <div class="form-group">
-            <label for="adminEmail">Email</label>
-            <input type="email" class="form-control" id="adminEmail" name="adminEmail" required>
-        </div>
-        <div class="form-group">
-            <label for="adminMobile">Mobile No</label>
-            <input type="tel" class="form-control" id="adminMobile" name="adminMobile" required>
-        </div>
-        <div class="form-group">
-            <label for="adminNIC">NIC</label>
-            <input type="text" class="form-control" id="adminNIC" name="adminNIC" required>
-        </div>
-        <div class="form-group">
-            <label for="adminPassword">Password</label>
-            <input type="password" class="form-control" id="adminPassword" name="adminPassword" required>
-            <small id="passwordHelpBlock" class="form-text text-muted">
-                <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
-            </small>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
+    
+    <!-- Blood Samples Table -->
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Sample ID</th>
+                <th scope="col">Donor NIC</th>
+                <th scope="col">Blood Type</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dynamic rows will be added here based on the server-side data -->
+        </tbody>
+    </table>
 </div>
 
-<script src="JS/addAdmin.js"></script> 
+<!-- Include jQuery and Bootstrap Bundle which includes Popper -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
