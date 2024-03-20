@@ -42,7 +42,9 @@ public class OtpCheckServlet extends HttpServlet {
 	    // get session attributes from login servlet
 	    HttpSession session = request.getSession();
 	    String emailString = (String) session.getAttribute("email");
+	    session.removeAttribute("email");
 	    int otp = (int) session.getAttribute("pin");
+	    session.removeAttribute("pin");
 	    
 	    // get parameters from otp.jsp
 	    int userpin = Integer.parseInt(request.getParameter("OTP"));

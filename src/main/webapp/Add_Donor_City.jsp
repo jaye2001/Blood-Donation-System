@@ -1,9 +1,11 @@
+<%@page import="classes.CityLoader"%>
 <%@page import="java.util.List"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.Import"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="classes.Loader" %>
 <%@page import="classes.ProvinceLoader" %>
+<%@page import="classes.DistricLoader" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,78 +83,122 @@
 
   	<div class="containerX">
         <div class ="title">Donor Details</div>	
-        	<form action="AddDonerServlet" method = "post" enctype="multipart/form-data" >
+        	<form action="AddDonerCityServlet" method = "post" id="province" >
         	<div class="user-details">
+        	
         	<div class="input-box">
-        		<span class="details">First Name</span>
-        		<input type="text" placeholder="Enter Your Full Name" required name="Fname">
+        		<span class="details">Province</span>
+        		<input type="hidden" name="hiddenP" value="province">
+        		<select id="country-Province" name="country-Province" required onchange="submitprovince()">
+        		<option value="">Select Province</option>
+   					<%ProvinceLoader myobj = new ProvinceLoader();
+    					List<Loader> loade = myobj.getLoade();
+    				
+    					for (Loader loader : loade){
+    						%>
+    						
+    						<option value="<%= loader.getNumber() %>"><%=loader.getNameString() %></option>
+    						
+    						<%
+    					}
+    					
+    				%>
+				</select>
         	</div>
+        	 </div>
+        	</form> 
+        	
+        	<form action="AddDonerCityServlet" method = "post" id="state" onchange="submitState()" >
+        	<div class="user-details"> 
         	<div class="input-box">
-        		<span class="details">Last Name</span>
-        		<input type="text" placeholder="Enter Your Full Name" required name="Lname">
+        		<span class="details">State</span>
+        		<input type="hidden" name="hiddens" value="State">
+        		
+        		<select id="country-state" name="country-state" required disabled>
+   					<option value="">Select state</option>
+    				
+    				<%
+    				
+    				if (request.getAttribute("district") != null) {
+    				
+    				String value2 = request.getAttribute("district").toString();
+    				if("true".equals(value2)){
+    					
+    		        		
+    				DistricLoader myobj2 = new DistricLoader();
+    					List<Loader> loade1 = myobj2.getLoade();
+    				
+    					for (Loader loader1 : loade1){
+    						%>
+    						
+    						<option value="<%= loader1.getNumber() %>"><%=loader1.getNameString() %></option>
+    						
+    						<%
+    					}
+    					
+    					String value3 = request.getAttribute("district").toString();
+	        			if("true".equals(value3)){
+	        				String value4 = request.getAttribute("province").toString();
+	        			int value4int = Integer.parseInt(value4);
+				%> 
+							<input type="hidden" name="hiddenP1" value="<%= value4int %>">
+				<% 	}
+    				} }
+    					
+    				%>
+    					
+    					
+				</select>
         	</div>
-        	
-        	<div class="input-box">
-        		<span class="details">Photo</span>
-        		<input type="file" name="pht" accept="image/*">
         	</div>
-        	
+        	</form>
+        	<form action="AddDonerCityServlet" method = "post" >
+        	<div class="user-details"> 
         	<div class="input-box">
-              <span class="details">NIC</span>
-              <input type="text" placeholder="Enter Your NIC" required name="NIC">
-   		   </div>
-        	
-        	<div class="input-box">
-        		<span class="details">Date of Birth Day</span>
-        		<input type="date" placeholder="" required name="DOB">
+        		<span class="details">City</span>
+        		<input type="hidden" name="hiddenc" value="City">
+        		<select id="country-city" name="country-city" required disabled>
+   					<option value="">Select city</option>
+    				
+    				<%
+    				
+    				if (request.getAttribute("city") != null) {
+    				
+    				String value2 = request.getAttribute("city").toString();
+    				if("true".equals(value2)){
+    					
+    		        		
+    				CityLoader myobj3 = new CityLoader();
+    					List<Loader> loade2 = myobj3.getLoade();
+    				
+    					for (Loader loader2 : loade2){
+    						%>
+    						
+    						<option value="<%= loader2.getNumber() %>"><%=loader2.getNameString() %></option>
+    						
+    						<%
+    					}
+    					String value6 = request.getAttribute("city").toString();
+	        			if("true".equals(value6)){
+	        				String value7 = request.getAttribute("state").toString();
+	        			int value7int = Integer.parseInt(value7);
+	        			String value8 = request.getAttribute("province").toString();
+	        			int value8int = Integer.parseInt(value8);
+				%> 
+				<input type="hidden" name="hiddenP" value="<%= value7int %>">
+				<input type="hidden" name="hiddenD" value="<%= value8int %>">
+				<% 	}	
+    				} }
+    					
+    				%>
+    					
+    					
+				</select>
         	</div>
-        	
-        	<div class="input-box">
-        		<span class="details">Weight</span>
-        		<input type="text" placeholder="" required name="weight">
-        	</div>
-        	
-        	<div class="input-box">
-        		<span class="details">Email Address</span>
-        		<input type="text" placeholder="Enter Your Email" required name="email">
-        	</div>
-        	
-        	<div class="input-box">
-       		 <span class="details">Mobile Phone</span>
-        	 <input type="text" placeholder="Enter Your Mobile Phone Number" required name="Mobilephn">
-    	   </div>
-        	
-        	
-        	<div class="input-box">
-        		<span class="details">Address</span>
-        		<input type="text" placeholder="Enter Your Address" required name="address">
         	</div>
 
-		<div class="input-box">
-		        <span class="details">Blood Type</span>
-		        <select name="bloodType" required>
-		            <option value="">Select Donor's Blood Type</option>
-		            <option value="A+">A+</option>
-		            <option value="A-">A-</option>
-		            <option value="B+">B+</option>
-		            <option value="B-">B-</option>
-		            <option value="O+">O+</option>
-		            <option value="O-">O-</option>
-		            <option value="AB+">AB+</option>
-		            <option value="AB-">AB-</option>
-		            <option value="unknown">Don't Know</option>
-		        </select>
-		    </div>
-        
-			<div class="gender-details">
-			    <input type="radio" id="male" name="gender" value="Male" required>
-			    <label for="male" class="gender">Male</label>
-			    
-			    <input type="radio" id="female" name="gender" value="Female" required>
-			    <label for="female" class="gender">Female</label>
-			    
-
-			</div>
+        	
+		
 			
         	<div class="button">
         	<input type="submit" value="Submit">
@@ -161,25 +207,39 @@
         	
 
         	<script>
-        		const First Name = document.getElementById('First Name');
-        		const Last Name = document.getElementById('Last Name');
-        		const Address = document.getElementById('Address');
-        		const Mobile = document.getElementById('Mobile');
-        		let blood = ["A+" ,"A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
-        		let slct1= document.getElementById("slct1");
-        		const form = document.getElementById('form');
+        		function submitprovince() {
+					document.getElementById("province").submit();
+				}
+        		function submitState() {
+					document.getElementById("state").submit();
+				}
         		
-        		const First Name_error = document.getElementById('First Name_error');
-        		const Last Name_error = document.getElementById('Last Name_error');
+        		<% 
+        		if(request.getAttribute("district") != null){
+        		String value3 = request.getAttribute("district").toString();
+        			if("true".equals(value3)){
+        				String value4 = request.getAttribute("province").toString();
+        			int value4int = Integer.parseInt(value4);
+        			%>
+        			document.getElementById("country-Province").value = "<%= value4int %>";
+        			document.getElementById("country-state").disabled = false;
+        			<%
+        			} }
+        		%>
         		
-        		form.addEventListnener('submit',(e)=>
-        		{
-        			if(First Name.value ==='' ||First Name.value == null)
-        				{
-        					e.preventDefault();
-        					First Name_error.inerHTML = "Name is requied";
-        				}
-        		})
+        		<% 
+        		if(request.getAttribute("city") != null){
+        		String value3 = request.getAttribute("city").toString();
+        			if("true".equals(value3)){
+        				String value5 = request.getAttribute("state").toString();
+        			int value5int = Integer.parseInt(value5);
+        			%>
+        			document.getElementById("country-state").value = "<%= value5int %>";
+        			document.getElementById("country-city").disabled = false;
+        			<%
+        			} }
+        		%>
+        		
         	</script>
         	
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
