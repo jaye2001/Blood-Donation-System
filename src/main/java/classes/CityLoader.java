@@ -34,7 +34,7 @@ public List<Loader> getLoade() throws SQLException {
 			Loader myobj3 = new Loader();
 			con = DBCONNECTION.initializeDatabase();
 			//System.out.println("run this");
-			PreparedStatement st = con.prepareStatement("Select id,name_en from cities where district_id = ?");
+			PreparedStatement st = con.prepareStatement("Select id,Cname_en from cities where district_id = ?");
 			st.setInt(1, number);
 			ResultSet rs = st.executeQuery();
 			//System.out.println(number);

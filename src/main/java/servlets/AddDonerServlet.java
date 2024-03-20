@@ -56,8 +56,7 @@ public class AddDonerServlet extends HttpServlet {
 			String dateString = request.getParameter("DOB");
 			String weightString = request.getParameter("weight");	
 			Part filePart = request.getPart("pht");
-			String imagePath = request.getServletContext().getRealPath("/images/Users") + File.separator;
-	        String pathString = imagePath + request.getParameter("NIC") + ".jpg";
+			
 			
 	        
 	        
@@ -84,7 +83,7 @@ public class AddDonerServlet extends HttpServlet {
 			
 			else {
 				
-				PreparedStatement statement1 = con.prepareStatement("insert into Person (NIC,Fname,Lname,email,password,DOB,type,gender) values (?,?,?,?,?,?,?,?)");
+				PreparedStatement statement1 = con.prepareStatement("insert into Person (NIC,Fname,Lname,email,password,DOB,type,gender,phnNum,address) values (?,?,?,?,?,?,?,?,?,?)");
 				
 				statement1.setString(1, request.getParameter("NIC"));
 				statement1.setString(2, request.getParameter("Fname"));
@@ -94,38 +93,44 @@ public class AddDonerServlet extends HttpServlet {
 				statement1.setDate(6, sqlDate);
 				statement1.setString(7, "donor");
 				statement1.setString(8, request.getParameter("gender"));
+				statement1.setString(9, request.getParameter("Mobilephn"));
+				statement1.setString(10, request.getParameter("address"));
 				
 				System.out.println(request.getParameter("NIC"));
 				
 				statement1.executeUpdate();
 				statement1.close();
 				
-				PreparedStatement statement2 = con.prepareStatement("insert into Person_P_A (NIC,type,value) values (?,?,?)");
-				statement2.setString(1, request.getParameter("NIC"));
-				statement2.setString(2, "phn");
-				statement2.setString(3, request.getParameter("Mobilephn"));
+//				PreparedStatement statement2 = con.prepareStatement("insert into Person_P_A (NIC,type,value) values (?,?,?)");
+//				statement2.setString(1, request.getParameter("NIC"));
+//				statement2.setString(2, "phn");
+//				statement2.setString(3, request.getParameter("Mobilephn"));
+//				
+//				statement2.executeUpdate();
+//				statement2.close();
+//				
+//				PreparedStatement statement3 = con.prepareStatement("insert into Person_P_A (NIC,type,value) values (?,?,?)");
+//				statement3.setString(1, request.getParameter("NIC"));
+//				statement3.setString(2, "address");
+//				
+//				
+//				statement3.executeUpdate();
+//				statement3.close();
 				
-				statement2.executeUpdate();
-				statement2.close();
-				
-				PreparedStatement statement3 = con.prepareStatement("insert into Person_P_A (NIC,type,value) values (?,?,?)");
-				statement3.setString(1, request.getParameter("NIC"));
-				statement3.setString(2, "address");
-				statement3.setString(3, request.getParameter("address"));
-				
-				statement3.executeUpdate();
-				statement3.close();
-				
-				PreparedStatement statement4 = con.prepareStatement("insert into Donor (NIC,Blood_Type,weight) values (?,?,?)");
+				PreparedStatement statement4 = con.prepareStatement("insert into Donor (NIC,Blood_Type,weight,Status) values (?,?,?,?)");
 				statement4.setString(1, request.getParameter("NIC"));
 				statement4.setString(2, request.getParameter("bloodType"));
 				statement4.setInt(3, weight);
+				statement4.setString(4, "new");
 				
 				statement4.executeUpdate();
 				statement4.close();
 				
 				
 				if (filePart != null) {
+					
+					String imagePath = request.getServletContext().getRealPath("/images/") + File.separator;
+			        String pathString = imagePath + request.getParameter("NIC") + ".jpg";
 		        	InputStream fileContent = filePart.getInputStream();
 		        	try (OutputStream outputStream = new FileOutputStream(pathString)) {
 						int read = 0;
