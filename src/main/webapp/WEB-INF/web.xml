@@ -9,14 +9,5 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>UserprofileServlet</display-name>
-    <servlet-name>UserprofileServlet</servlet-name>
-    <servlet-class>servlets.UserprofileServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserprofileServlet</servlet-name>
-    <url-pattern>/UserprofileServlet</url-pattern>
-  </servlet-mapping>
+  
 </web-app>
