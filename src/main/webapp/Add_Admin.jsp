@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,14 +76,22 @@
 <!-- Add Admin Form -->
 <div class="container">
     <h2>Add Admin</h2>
-    <form id="addAdminForm" action="AddAdminServlet" method = "post">
+    <form id="addAdminForm">
         <div class="form-group">
             <label for="adminName">First Name</label>
-            <input type="text" class="form-control" id="adminFName" name="adminFName" required>
+            <input type="text" class="form-control" id="adminName" name="FName" required>
         </div>
         <div class="form-group">
             <label for="adminName">Last Name</label>
-            <input type="text" class="form-control" id="adminLName" name="adminLName" required>
+            <input type="text" class="form-control" id="adminName" name="LName" required>
+        </div>
+        <div class="form-group">
+            <label for="adminName">NIC</label>
+            <input type="text" class="form-control" id="adminName" name="NIC" required>
+        </div>
+        <div class="form-group">
+            <label for="adminName">Date Of Birthday</label>
+            <input type="date" class="form-control" id="adminName" name="DOB" required>
         </div>
         <div class="form-group">
             <label for="adminEmail">Email</label>
@@ -93,16 +102,26 @@
             <input type="tel" class="form-control" id="adminMobile" name="adminMobile" required>
         </div>
         <div class="form-group">
-            <label for="adminNIC">NIC</label>
-            <input type="text" class="form-control" id="adminNIC" name="adminNIC" required>
+            <label for="adminMobile">address</label>
+            <input type="text" class="form-control" id="adminName" name="address" required>
         </div>
         <div class="form-group">
+            <input type="radio" id="male" name="gender" value="Male" required>
+			    <label for="male" id="adminUsername" class="gender">Male</label>
+			    
+			    <input type="radio" id="female" name="gender" value="Female" required>
+			    <label for="female" id="adminUsername" class="gender">Female</label>
+            
+        </div>
+        <!-- <div class="form-group">
             <label for="adminPassword">Password</label>
             <input type="password" class="form-control" id="adminPassword" name="adminPassword" required>
             <small id="passwordHelpBlock" class="form-text text-muted">
                 <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
             </small>
-        </div>
+        </div> -->
+        
+        
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

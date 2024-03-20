@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>User profile</title>
 
-      <link rel="stylesheet" href="/BLOOD_DONATION_SYSTEM/src/main/webapp/css/Userprofile.css" class="rel" />
+      <link rel="stylesheet" href="css/Userprofile.css" class="rel" />
 
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   </head>
@@ -24,7 +24,7 @@
                 <div class="col-lg-7 col-md-10">
                   <h1 class="display-2 text-white">Hello Jesse</h1>
                   <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-                  <a href="#!" class="btn btn-info">Edit profile</a>
+                  <a href="#!" class="btn btn-info" onclick="editaccess()">Edit profile</a>
                 </div>
               </div>
             </div>
@@ -36,19 +36,19 @@
                 <div class="card card-profile shadow">
                   <div class="row justify-content-center">
                     <div class="col-lg-3 order-lg-2">
-                      <div class="card-profile-image">
+                      <div class="card-profile-image" style="padding-bottom: 50px;">
                         <a href="#">
                           <img src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" class="rounded-circle">
                         </a>
                       </div>
                     </div>
                   </div>
-                  <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                  <!-- <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                     <div class="d-flex justify-content-between">
                       <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
                       <a href="#" class="btn btn-sm btn-default float-right">Message</a>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="card-body pt-0 pt-md-4">
                     <div class="row">
                       <div class="col">
@@ -60,14 +60,10 @@
                       <h3>
                         Jessica Jones<span class="font-weight-light">, 27</span>
                       </h3>
-                      <div class="h5 font-weight-300">
-                        <i class="ni location_pin mr-2"></i>Bucharest, Romania
-                      </div>
-                      <div class="h5 mt-4">
-                        <i class="ni business_briefcase-24 mr-2"></i>Email addresse
-                      </div>                    
+                      <label></label>
+                                        
                       <hr class="my-4">
-                      <a href="#">Show more</a>
+                      <a href="#">History</a>
                     </div>
                   </div>
                 </div>
@@ -86,30 +82,48 @@
                       <h6 class="heading-small text-muted mb-4">User information</h6>
                       <div class="pl-lg-4">
                         <div class="row">
-                          <div class="col-lg-6">
+                                                  <div class="col-lg-4">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-username">Username</label>
-                              <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                              <label class="form-control-label"  for="input-username">NIC</label>
+                              <input type="text" id="nic" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse" disabled>
                             </div>
                           </div>
-                          <div class="col-lg-6">
+                          <div class="col-lg-4">
                             <div class="form-group">
-                              <label class="form-control-label" for="input-email">Email address</label>
-                              <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                              <label class="form-control-label"  for="input-email">Email address</label>
+                              <input type="email" id="email" class="form-control form-control-alternative" placeholder="jesse@example.com" disabled>
                             </div>
                           </div>
-                        </div>
+                           <div class="col-lg-4">
+                            <div class="form-group">
+                              <label class="form-control-label"  for="input-email">Blood type</label>
+                              <input type="email" id="bltype" class="form-control form-control-alternative" placeholder="jesse@example.com" disabled>
+                            </div>
+                          </div>
+                          
                         <div class="row">
                           <div class="col-lg-6">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-first-name">First name</label>
-                              <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                              <label class="form-control-label"  for="input-first-name">First name</label>
+                              <input type="text" id="fname" class="form-control form-control-alternative" placeholder="First name" value="Lucky" disabled>
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-last-name">Last name</label>
-                              <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                              <label class="form-control-label"  for="input-last-name">Last name</label>
+                              <input type="text" id="lname" class="form-control form-control-alternative" placeholder="Last name" value="Jesse" disabled>
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="form-group focused">
+                              <label class="form-control-label"  for="input-last-name">DOB</label>
+                              <input type="text" id="dob" class="form-control form-control-alternative" placeholder="Last name" value="Jesse" disabled>
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="form-group focused">
+                              <label class="form-control-label"  for="input-last-name">Gender</label>
+                              <input type="text" id="gender" class="form-control form-control-alternative" placeholder="Last name" value="Jesse" disabled>
                             </div>
                           </div>
                         </div>
@@ -121,41 +135,33 @@
                         <div class="row">
                           <div class="col-md-12">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-address">Address</label>
-                              <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                              <label class="form-control-label"  for="input-address">Address</label>
+                              <input id="address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text" disabled>
                             </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-lg-4">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-city">City</label>
-                              <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="New York">
+                              <label class="form-control-label"  for="input-city">City</label>
+                              <input type="text" id="city" class="form-control form-control-alternative" placeholder="City" value="New York" disabled>
                             </div>
                           </div>
                           <div class="col-lg-4">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-country">Country</label>
-                              <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="United States">
+                              <label class="form-control-label"  for="input-country">State</label>
+                              <input type="text" id="state" class="form-control form-control-alternative" placeholder="Country" value="United States" disabled>
                             </div>
-                          </div>
-                          <div class="col-lg-4">
-                            <div class="form-group">
-                              <label class="form-control-label" for="input-country">Postal code</label>
-                              <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                            
+                            <div style="display: none;" id="submit">
+                            <input type="submit" value="submit">
                             </div>
+                            
                           </div>
+                         
                         </div>
                       </div>
-                      <hr class="my-4">
-                      
-                      <h6 class="heading-small text-muted mb-4">About me</h6>
-                      <div class="pl-lg-4">
-                        <div class="form-group focused">
-                          <label>About Me</label>
-                          <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
-                        </div>
-                      </div>
+
                     </form>
                   </div>
                 </div>
@@ -163,5 +169,24 @@
             </div>
           </div>
         </div>
+        
+        <script>
+        
+        function editaccess() {
+			document.getElementById("nic").disabled = false;
+			document.getElementById("email").disabled = false;
+			document.getElementById("bltype").disabled = false;
+			document.getElementById("fname").disabled = false;
+			document.getElementById("lname").disabled = false;
+			document.getElementById("dob").disabled = false;
+			document.getElementById("gender").disabled = false;
+			document.getElementById("address").disabled = false;
+			document.getElementById("city").disabled = false;
+			document.getElementById("state").disabled = false;
+			document.getElementById("submit").style.display = "block";
+		}
+        
+        </script>
+        
   </body>
 </html>

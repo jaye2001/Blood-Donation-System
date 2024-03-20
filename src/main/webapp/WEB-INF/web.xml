@@ -11,15 +11,12 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>SearchAndUpdatePersonServlet</display-name>
-    <servlet-name>SearchAndUpdatePersonServlet</servlet-name>
-    <servlet-class>servlets.SearchAndUpdatePersonServlet</servlet-class>
+    <display-name>UserprofileServlet</display-name>
+    <servlet-name>UserprofileServlet</servlet-name>
+    <servlet-class>servlets.UserprofileServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SearchAndUpdatePersonServlet</servlet-name>
-    <url-pattern>/SearchAndUpdatePersonServlet</url-pattern>
+    <servlet-name>UserprofileServlet</servlet-name>
+    <url-pattern>/UserprofileServlet</url-pattern>
   </servlet-mapping>
 </web-app>
-
-
-
