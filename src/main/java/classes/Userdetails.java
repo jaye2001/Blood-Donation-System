@@ -1,6 +1,10 @@
 package classes;
 
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Userdetails {
@@ -22,6 +26,7 @@ public class Userdetails {
 	private String pnameString;
 	private String DnameString;
 	private String CnameString;
+	private String typeString;
 	
 	
 	
@@ -44,7 +49,7 @@ public class Userdetails {
 		this.pnameString = pname;
 		this.DnameString = dname;
 		this.CnameString = cname;
-
+		System.out.println(nICString);
 	}
 	
 	public String getNicString() {
@@ -65,6 +70,7 @@ public class Userdetails {
 	
 	public Date getDate() {
 		return dOBDate;
+		
 	}
 	
 	public String getGenderString() {
@@ -113,6 +119,31 @@ public class Userdetails {
 	
 	public String getCname() {
 		return CnameString;
+	}
+	
+	public int getAge() {
+		LocalDate date2 = LocalDate.now();
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
+		String yearString = formatter.format(date2);
+		
+		
+		//Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+        String yearString2 = sdf.format(dOBDate);
+		
+		int year = Integer.parseInt(yearString);
+		int yearuserint = Integer.parseInt(yearString2);
+		
+		return (year-yearuserint);
+	}
+	
+	public void setType(String type) {
+		this.typeString = type;
+	}
+	
+	public String getType() {
+		return typeString;
 	}
 	
 }

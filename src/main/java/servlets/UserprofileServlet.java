@@ -21,9 +21,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.sql.ResultSet;
+import java.sql.Date;
 
 
 
@@ -31,6 +32,7 @@ import java.sql.ResultSet;
 
 import db.DBCONNECTION;
 import thirdparty.*;
+import classes.Userdetails;
 
 /**
  * Servlet implementation class AddDonerServlet
@@ -43,7 +45,7 @@ public class UserprofileServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doget(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
 		response.setContentType("text/html");  
@@ -51,26 +53,29 @@ public class UserprofileServlet extends HttpServlet {
 	    Connection con;
 		 try {
 			con = DBCONNECTION.initializeDatabase();
+			 HttpSession session = request.getSession();
 			
-			PreparedStatement st = con.prepareStatement("call select_user_email(   );");
+			PreparedStatement st = con.prepareStatement("call select_user_email( ? );");
+			st.setString(1, (String) session.getAttribute("nic"));
 			ResultSet rs = st.executeQuery();
-			
-			
+		
+			Userdetails Userdetails = new Userdetails();
 			 
 			while (rs.next()) {
 				
 				
-				loader.SetList(rs.getInt("id"), rs.getString("name_en"));
-				
+				Date sqlDate = rs.getDate("DOB");
+		        Userdetails.setUser(rs.getString("NIC"), rs.getString("Fname"),rs.getString("Lname"),rs.getString("email"),sqlDate ,rs.getString("gender"),rs.getString("phtpath"),rs.getString("phnNum"),rs.getString("address"),rs.getString("Blood_Type"),rs.getInt("weight"),rs.getInt("provinceid"),rs.getInt("DistricId"),rs.getInt("CityId"),rs.getString("Pname_en"),rs.getString("Dname_en"),rs.getString("Cname_en"));
+				Userdetails.setType((String) session.getAttribute("type"));
 				//System.out.println(rs.getInt("id")+rs.getString("name_en"));
 				
 			}
-			
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Add_Donor_City.jsp");
+			request.setAttribute("Userdetails", Userdetails);
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Userprofile.jsp");
 			requestDispatcher.include(request, response);
 			
-			HttpSession session = request.getSession();
-		    session.setAttribute("nic", request.getParameter("NIC") );
+			
+		   
 			
 			st.close();
 			con.close();

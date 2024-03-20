@@ -28,7 +28,7 @@ public List<Loader> getLoade() throws SQLException {
 			while (rs.next()) {
 				
 				Loader loader = new Loader();
-				loader.SetList(rs.getInt("id"), rs.getString("name_en"));
+				loader.SetList(rs.getInt("id"), rs.getString("Pname_en"));
 				loade.add(loader);
 				//System.out.println(rs.getInt("id")+rs.getString("name_en"));
 				

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="classes.Userdetails" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,17 @@
                 <div class="col-lg-7 col-md-10">
                   <h1 class="display-2 text-white">Hello Jesse</h1>
                   <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-                  <a href="#!" class="btn btn-info" onclick="editaccess()">Edit profile</a>
+                  
+                  <% Userdetails Userdetails = (Userdetails) request.getAttribute("Userdetails"); 
+                  
+                  if (Userdetails.getType() == "admin")
+                  {
+                  
+                  %>
+                  
+                 		 <a href="#!" class="btn btn-info" onclick="editaccess()">Edit profile</a>
+                 
+                 <% } %>
                 </div>
               </div>
             </div>
@@ -49,6 +60,8 @@
                       <a href="#" class="btn btn-sm btn-default float-right">Message</a>
                     </div>
                   </div> -->
+                  
+                  
                   <div class="card-body pt-0 pt-md-4">
                     <div class="row">
                       <div class="col">
@@ -58,7 +71,7 @@
                     </div>
                     <div class="text-center">
                       <h3>
-                        Jessica Jones<span class="font-weight-light">, 27</span>
+                        <%= Userdetails.getFnameString() + "  " + Userdetails.getLnameString()  %><span class="font-weight-light">, <%=Userdetails.getAge() %></span>
                       </h3>
                       <label></label>
                                         
@@ -78,26 +91,29 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <form>
+                  
+                  
+                  
+                    <form id="form" action="UserUpdateServlet" method="post">
                       <h6 class="heading-small text-muted mb-4">User information</h6>
                       <div class="pl-lg-4">
                         <div class="row">
                                                   <div class="col-lg-4">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-username">NIC</label>
-                              <input type="text" id="nic" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse" disabled>
+                              <input type="text" id="nic" name="nic" class="form-control form-control-alternative" placeholder="Username" value="<%= Userdetails.getNicString() %>" disabled>
                             </div>
                           </div>
                           <div class="col-lg-4">
                             <div class="form-group">
                               <label class="form-control-label"  for="input-email">Email address</label>
-                              <input type="email" id="email" class="form-control form-control-alternative" placeholder="jesse@example.com" disabled>
+                              <input type="email" id="email" name="email" class="form-control form-control-alternative" value="<%= Userdetails.getEmailString() %>" disabled>
                             </div>
                           </div>
                            <div class="col-lg-4">
                             <div class="form-group">
                               <label class="form-control-label"  for="input-email">Blood type</label>
-                              <input type="email" id="bltype" class="form-control form-control-alternative" placeholder="jesse@example.com" disabled>
+                              <input type="text" id="bltype" name="bloodtype" class="form-control form-control-alternative" value="<%= Userdetails.getBloodtypeString() %>" disabled>
                             </div>
                           </div>
                           
@@ -105,25 +121,25 @@
                           <div class="col-lg-6">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-first-name">First name</label>
-                              <input type="text" id="fname" class="form-control form-control-alternative" placeholder="First name" value="Lucky" disabled>
+                              <input type="text" id="fname" name="Fname" class="form-control form-control-alternative" placeholder="First name" value="<%= Userdetails.getFnameString() %>" disabled>
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-last-name">Last name</label>
-                              <input type="text" id="lname" class="form-control form-control-alternative" placeholder="Last name" value="Jesse" disabled>
+                              <input type="text" id="lname" name="Lname" class="form-control form-control-alternative" placeholder="Last name" value="<%= Userdetails.getLnameString() %>" disabled>
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-last-name">DOB</label>
-                              <input type="text" id="dob" class="form-control form-control-alternative" placeholder="Last name" value="Jesse" disabled>
+                              <input type="text" id="dob" name="dob" class="form-control form-control-alternative" placeholder="Last name" value="<%= Userdetails.getDate() %>" disabled>
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-last-name">Gender</label>
-                              <input type="text" id="gender" class="form-control form-control-alternative" placeholder="Last name" value="Jesse" disabled>
+                              <input type="text" id="gender" name="gender" class="form-control form-control-alternative" placeholder="Last name" value="<%= Userdetails.getGenderString() %>" disabled>
                             </div>
                           </div>
                         </div>
@@ -136,25 +152,38 @@
                           <div class="col-md-12">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-address">Address</label>
-                              <input id="address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text" disabled>
+                              <input id="address" name="address" class="form-control form-control-alternative" placeholder="Home Address" value="<%= Userdetails.getAddresssString() %>" type="text" disabled>
                             </div>
                           </div>
                         </div>
+                         <div style="display: none;" id="location">
+                            	<a href="UserprofilechangestateServle?nic=<%= Userdetails.getNicString() %>" class="btn btn-info" onclick="editaccess()">Edit Location</a>
+                            </div>
                         <div class="row">
                           <div class="col-lg-4">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-city">City</label>
-                              <input type="text" id="city" class="form-control form-control-alternative" placeholder="City" value="New York" disabled>
+                              <input type="text" id="city" class="form-control form-control-alternative" placeholder="City" value="<%= Userdetails.getCname() %>" disabled>
                             </div>
                           </div>
                           <div class="col-lg-4">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-country">State</label>
-                              <input type="text" id="state" class="form-control form-control-alternative" placeholder="Country" value="United States" disabled>
+                              <input type="text" id="state" class="form-control form-control-alternative" placeholder="Country" value="<%= Userdetails.getDname() %>" disabled>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group focused">
+                              <label class="form-control-label"  for="input-country">Provice</label>
+                              <input type="text" id="Province" class="form-control form-control-alternative" placeholder="Country" value="<%= Userdetails.getPname() %>" disabled>
                             </div>
                             
+                           
+                            
                             <div style="display: none;" id="submit">
-                            <input type="submit" value="submit">
+                            <a href="UserprofileServlet?nic=<%= Userdetails.getNicString() %>" class="btn btn-info" >Cancel</a>
+                            <a class="btn btn-info"  onclick="submit()">Submit</a>
+                            
                             </div>
                             
                           </div>
@@ -171,7 +200,7 @@
         </div>
         
         <script>
-        
+       <% if (Userdetails.getType() == "admin") {   %> 
         function editaccess() {
 			document.getElementById("nic").disabled = false;
 			document.getElementById("email").disabled = false;
@@ -181,11 +210,20 @@
 			document.getElementById("dob").disabled = false;
 			document.getElementById("gender").disabled = false;
 			document.getElementById("address").disabled = false;
-			document.getElementById("city").disabled = false;
+			/* document.getElementById("city").disabled = false;
 			document.getElementById("state").disabled = false;
+			document.getElementById("Province").disabled = false; */
 			document.getElementById("submit").style.display = "block";
+			document.getElementById("location").style.display = "block";
+			document.getElementById("dob").type = "date";
+			document.getElementById("dob").value = "<%= Userdetails.getDate() %>";
+			
 		}
         
+        function submit() {
+        	document.getElementById("form").submit();
+		}
+         <% } %>
         </script>
         
   </body>

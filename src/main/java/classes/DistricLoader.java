@@ -43,7 +43,7 @@ public List<Loader> getLoade() throws SQLException {
 			while (rs.next()) {
 				//System.out.println("run this");
 				Loader loader1 = new Loader();
-				loader1.SetList(rs.getInt("id"), rs.getString("name_en"));
+				loader1.SetList(rs.getInt("id"), rs.getString("Dname_en"));
 				loade1.add(loader1);
 				//System.out.println(rs.getInt("id")+rs.getString("name_en"));
 				
