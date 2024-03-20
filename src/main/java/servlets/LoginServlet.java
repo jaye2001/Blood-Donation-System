@@ -94,7 +94,7 @@ public class LoginServlet extends HttpServlet {
 					    HttpSession session = request.getSession();
 					    session.setAttribute("email", emailString );
 					    session.setAttribute("pin", pinnumber);
-					    
+					    session.setAttribute("nic", NIC);					    
 					    RequestDispatcher requestDispatcher = 
 	 		 	    			request.getRequestDispatcher("/otpenter.jsp");
 	 		 			requestDispatcher.forward(request, response);
