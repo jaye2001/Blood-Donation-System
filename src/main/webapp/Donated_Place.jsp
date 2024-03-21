@@ -88,7 +88,7 @@
     <div class="card">
         <h5 class="card-header">Blood Donated Form</h5>
         <div class="card-body">
-            <form action="BloodDonatedServlet" method="post">
+            <form action="BloodDonationServlet" method="post">
                 
                 <!-- Donor NIC -->
                 <div class="form-group">
@@ -127,6 +127,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- Include Bootstrap Datepicker JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
 <script>
     // Initialize datepicker
     $('#datepicker').datepicker({
