@@ -11,7 +11,7 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-     <display-name>campServlet</display-name>
+    <display-name>campServlet</display-name>
     <servlet-name>campServlet</servlet-name>
     <servlet-class>servlets.campServlet</servlet-class>
   </servlet>
@@ -29,4 +29,5 @@
     <servlet-name>CampaignPage</servlet-name>
     <url-pattern>/view-campaigns</url-pattern>
   </servlet-mapping>
+  
 </web-app>
