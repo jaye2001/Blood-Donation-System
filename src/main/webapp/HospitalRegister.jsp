@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Blood Campaign Registration</title>
+    <title>Hospital Registation</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/campaignReg.css">
 </head>
@@ -43,46 +43,30 @@
 <input type="hidden" id ="status" value="<%= request.getAttribute("status") %>">
 
 <div class="containerX">
-    <div class="title">Blood Campaign Details</div>    
-    <form method ="post" action="campRegister" enctype="multipart/form-data">
+    <div class="title">Hospital Registation</div>    
+    <form method ="post" action="AddHospital" >
         <div class="user-details">
             <div class="input-box">
-                <span class="details">Campaign Name</span>
-                <input type="text" name="name" placeholder="Enter Campaign Name" required>
+                <span class="details">Hospital Name</span>
+                <input type="text" name="name" placeholder="Enter Hospital Name" required>
             </div>
-            <div class="input-box">
-                <span class="details">Select Image</span>
-                <input type="file" name="image" required>
-            </div>
+            
             <div class="input-box">
                 <span class="details">Location</span>
                 <input type="text" name="location"  placeholder="Enter Location" required>
             </div>
             
             <div class="input-box">
-                <span class="details">Date</span>
-                <input type="date" name="date"  placeholder="" required>
+                <span class="details">Email</span>
+                <input type="text" name="email"  placeholder="Enter Email" required>
             </div>
+            
             <div class="input-box">
-                <span class="details">Starting time</span>
-                <input type="time" name="STime"  placeholder="" required>
+                <span class="details">Password</span>
+                <input type="password" name="password"  placeholder="Enter Password" required>
             </div>
-            <div class="input-box">
-                <span class="details">Ending time</span>
-                <input type="time" name="FTime"  placeholder="" required>
-            </div>
-            <div class="input-box">
-                <span class="details">Organizers</span>
-                <input type="text" name="organizer"  placeholder="Enter Organizers" required>
-            </div>
-            <div class="input-box">
-                <span class="details">Most needed Blood group</span>
-                <input type="text" name="bloodGroup"  placeholder="Enter Blood group" required>
-            </div>
-            <div class="input-box">
-                <span class="details">Add Description</span>
-                <input type="text" name="description"  placeholder="Description" required>
-            </div>
+            
+            
         </div>
         <div class="button">
             <input type="submit" value="Submit">

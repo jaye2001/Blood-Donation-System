@@ -23,21 +23,21 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.sql.ResultSet;
+
 
 
 
 
 
 import db.DBCONNECTION;
-import thirdparty.*;
+
 
 /**
  * Servlet implementation class AddDonerServlet
  */
 @MultipartConfig
-@WebServlet("/AddDonerServlet")
-public class AddDonerServlet extends HttpServlet {
+@WebServlet("/UserUpdateServlet")
+public class UserUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
@@ -49,19 +49,12 @@ public class AddDonerServlet extends HttpServlet {
 		response.setContentType("text/html");  
 	    PrintWriter out = response.getWriter();
 	    Connection con;
+	    HttpSession session = request.getSession();
 	    
 	    try {
 			con = DBCONNECTION.initializeDatabase();
 							
-			String dateString = request.getParameter("DOB");
-			String weightString = request.getParameter("weight");	
-			Part filePart = request.getPart("pht");
-			
-			
-	        
-	        
-			
-			int weight = Integer.parseInt(weightString);
+			String dateString = request.getParameter("dob");	
 			
 			java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
 			java.sql.Date sqlDate = new java.sql.Date(date.getTime());
@@ -77,24 +70,20 @@ public class AddDonerServlet extends HttpServlet {
 			int yearuserint = Integer.parseInt(yearuserString);
 			
 			if (year - yearuserint < 18) {
-				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Add_Donor.jsp");
-				requestDispatcher.include(request, response);
+				response.sendRedirect("UserprofileServlet");
 			}
 			
 			else {
 				
-				PreparedStatement statement1 = con.prepareStatement("insert into Person (NIC,Fname,Lname,email,password,DOB,type,gender,phnNum,address) values (?,?,?,?,?,?,?,?,?,?)");
+				PreparedStatement statement1 = con.prepareStatement("UPDATE Person SET NIC = ?,Fname = ?,Lname = ?,email = ?,DOB = ?,address = ? where NIC = ?");
 				
-				statement1.setString(1, request.getParameter("NIC"));
+				statement1.setString(1, request.getParameter("nic"));
 				statement1.setString(2, request.getParameter("Fname"));
 				statement1.setString(3, request.getParameter("Lname"));
 				statement1.setString(4, request.getParameter("email"));
-				statement1.setString(5, "otp");
-				statement1.setDate(6, sqlDate);
-				statement1.setString(7, "donor");
-				statement1.setString(8, request.getParameter("gender"));
-				statement1.setString(9, request.getParameter("Mobilephn"));
-				statement1.setString(10, request.getParameter("address"));
+				statement1.setDate(5, sqlDate);
+				statement1.setString(6, request.getParameter("address"));
+				statement1.setString(7, (String) session.getAttribute("nic"));
 				
 				System.out.println(request.getParameter("NIC"));
 				
@@ -117,43 +106,14 @@ public class AddDonerServlet extends HttpServlet {
 //				statement3.executeUpdate();
 //				statement3.close();
 				
-				PreparedStatement statement4 = con.prepareStatement("insert into Donor (NIC,Blood_Type,weight,Status) values (?,?,?,?)");
-				statement4.setString(1, request.getParameter("NIC"));
-				statement4.setString(2, request.getParameter("bloodType"));
-				statement4.setInt(3, weight);
-				statement4.setString(4, "new");
-				
-				statement4.executeUpdate();
-				statement4.close();
 				
 				
-				if (filePart != null) {
-					
-					String imagePath = request.getServletContext().getRealPath("/images/") + File.separator;
-			        String pathString = imagePath + request.getParameter("NIC") + ".jpg";
-		        	InputStream fileContent = filePart.getInputStream();
-		        	try (OutputStream outputStream = new FileOutputStream(pathString)) {
-						int read = 0;
-						final byte[] bytes = new byte[1024];
-						while ((read = fileContent.read(bytes)) != -1) {
-						    outputStream.write(bytes, 0, read);
-						}
-					}
-		        	
-		        	PreparedStatement stmtimage = con.prepareStatement("Update Person SET phtpath = ? where NIC = ?");
-		        	stmtimage.setString(1, pathString);
-		        	stmtimage.setString(2, request.getParameter("NIC"));
-		        	stmtimage.executeUpdate();
-		        	stmtimage.close();		        	
-		        }
 				
-				
-				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Add_Donor_City.jsp");
-				requestDispatcher.include(request, response);
+				response.sendRedirect("UserprofileServlet");
 			}
 		
-			HttpSession session = request.getSession();
-		    session.setAttribute("nic", request.getParameter("NIC") );
+			
+		    
 			con.close();
 			
 	    } catch (ClassNotFoundException | SQLException | ParseException e) {

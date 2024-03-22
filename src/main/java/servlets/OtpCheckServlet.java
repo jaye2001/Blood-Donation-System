@@ -10,18 +10,9 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
-import javax.print.attribute.standard.OrientationRequested;
+import classes.Checklogin;
 
-import java.sql.ResultSet;
-
-
-
-import db.DBCONNECTION;
-import thirdparty.*;
 
 /**
  * Servlet implementation class OtpCheckServlet
@@ -42,13 +33,21 @@ public class OtpCheckServlet extends HttpServlet {
 	    // get session attributes from login servlet
 	    HttpSession session = request.getSession();
 	    String emailString = (String) session.getAttribute("email");
+	    
 	    int otp = (int) session.getAttribute("pin");
+	    
 	    
 	    // get parameters from otp.jsp
 	    int userpin = Integer.parseInt(request.getParameter("OTP"));
 	    
 	    if (userpin == otp) {
 			
+	    	session.setAttribute("type", "donor");
+	    	Checklogin Checklogin = new Checklogin();
+	    	Checklogin.setLogin(true);
+	    	request.setAttribute("Checklogin", Checklogin);
+	    	session.removeAttribute("pin");
+	    	session.removeAttribute("email");
 	    	RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Home.jsp");
 	    	requestDispatcher.forward(request, response);
 	    	
@@ -57,6 +56,7 @@ public class OtpCheckServlet extends HttpServlet {
 	    else {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/otpenter.jsp");
 			requestDispatcher.forward(request, response);
+			
 			}
 		
 	    
