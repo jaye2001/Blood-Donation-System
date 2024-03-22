@@ -3,7 +3,7 @@
   <display-name>BLOOD_DONATION_SYSTEM</display-name>
   <welcome-file-list>
  
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>Login.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
