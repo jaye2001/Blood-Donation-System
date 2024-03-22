@@ -29,5 +29,14 @@
     <servlet-name>CampaignPage</servlet-name>
     <url-pattern>/view-campaigns</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>DonationHistory</display-name>
+    <servlet-name>DonationHistory</servlet-name>
+    <servlet-class>servlets.DonationHistory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DonationHistory</servlet-name>
+    <url-pattern>/DonationHistory</url-pattern>
+  </servlet-mapping>
 </web-app>
