@@ -45,46 +45,25 @@
   </nav>
   	<div class="containerX">
         <div class ="title">Hospital Request Form</div>	
-        	<form action="#">
+        	<form method="post" action="HospitalReq">
         	<div class="user-details">
-        	<div class="input-box">
-        		<span class="details">Hospital Name</span>
-        		<input type="text" placeholder="Enter Hospital Name" required>
-        	</div>
+        	
         	
         	<div class="input-box">
         		<span class="details">Hospital ID</span>
-        		<input type="text" placeholder="Enter Hospital ID" required>
+        		<input type="text" name="hospitalID"  placeholder="Enter Hospital ID" required>
         	</div>
         	
-        	<div class="input-box">
-        		<span class="details">City</span>
-        		<input type="text" placeholder="City" required>
-        	</div>
         	
-        	<div class="input-box">
-        		<span class="details">Postal Code</span>
-        		<input type="text" placeholder="Postal Code" required>
-        	</div>
-        	
-        	<div class="input-box">
-        		<span class="details">Hospital Email Address</span>
-        		<input type="text" placeholder="Enter Hospital Email" required>
-        	</div>
-        	
-        	<div class="input-box">
-        		<span class="details">Hospital Phone Number</span>
-        		<input type="text" placeholder="Enter Hospital Phone Number" required>
-        	</div>
         	
         	<div class="input-box">
         		<span class="details">Blood Type</span>
-        		<input type="text" placeholder="Enter Blood Type" required>
+        		<input type="text" name="bloodType" placeholder="Enter Blood Type" required>
         	</div>
         	
         	<div class="input-box">
         		<span class="details">Blood Point</span>
-        		<input type="text" placeholder="Enter Number of Blood Point" required>
+        		<input type="text" name="bloodpoints" placeholder="Enter Number of Blood Point" required>
         	</div>
         	
         	
