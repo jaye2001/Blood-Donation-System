@@ -1,1 +1,1 @@
-web: mvn tomcat7:run-war
+web: java -jar target/dependency/webapp-runner.jar target/*.war
