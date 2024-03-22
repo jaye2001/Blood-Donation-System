@@ -1,5 +1,5 @@
 <project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
- <modelVersion>4.0.0</modelVersion>
+ <!--<modelVersion>4.0.0</modelVersion>
   <groupId>BLOOD_DONATION_SYSTEM</groupId>
   <artifactId>BLOOD_DONATION_SYSTEM</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -11,8 +11,36 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version> 
         <configuration>
-			<!--<warSourceDirectory>src/main/webapp</warSourceDirectory>-->
-          <!--<release>21</release>-->
+			<warSourceDirectory>src/main/webapp</warSourceDirectory>
+          <release>21</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>-->
+
+
+ <modelVersion>4.0.0</modelVersion>
+  <groupId>BLOOD_DONATION_SYSTEM</groupId>
+  <artifactId>BLOOD_DONATION_SYSTEM</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version> 
+        <configuration>
+          <release>21</release>
         </configuration>
       </plugin>
       <plugin>
