@@ -49,4 +49,14 @@
     <servlet-name>RequestedBloodServlet</servlet-name>
     <url-pattern>/RequestedBloodServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ApproveBloodServlet</display-name>
+    <servlet-name>ApproveBloodServlet</servlet-name>
+    <servlet-class>servlets.ApproveBloodServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApproveBloodServlet</servlet-name>
+    <url-pattern>/ApproveBloodServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
