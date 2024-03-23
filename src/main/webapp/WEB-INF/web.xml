@@ -39,4 +39,14 @@
     <servlet-name>DonationHistory</servlet-name>
     <url-pattern>/DonationHistory</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RequestedBloodServlet</display-name>
+    <servlet-name>RequestedBloodServlet</servlet-name>
+    <servlet-class>servlets.RequestedBloodServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestedBloodServlet</servlet-name>
+    <url-pattern>/RequestedBloodServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
