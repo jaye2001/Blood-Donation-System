@@ -1,4 +1,5 @@
 <%@ page import="servlets.Campaign" %>
+<%@ page import="classes.CampaignHis" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -65,7 +66,7 @@
         <div class="row" style="margin-left: 50px; margin-bottom: 30px" >
             <!-- Campaign Card -->
             <div class="col-sm-3" >
-                <div class="card campaign-card" style="width: 18rem">
+                <div class="card campaign-card" style="width: 19rem">
                     <img class="card-img-top" src="images/<%= campaign.getImage() %>" alt="Campaign Image">
                     <div class="card-body">
                         <h5 class="card-title"><%= campaign.getName() %></h5>
@@ -88,38 +89,38 @@
 
 
 
-<section class="recent-campaigns">
+<section class="recent-campaigns" >
     <div class="container mt-5">
         <h2 class="text-center mb-4">Recent Campaigns</h2>
-        <div class="row">
+        <div style ="display: flex; justify-conent:space-between; flex-wrap: wrap;">
+        
+        <%
+        	if(request.getAttribute("campaignhis")==null){
+        		
+        	}else{
+        		List<CampaignHis> campaignhis = (List<CampaignHis>) request.getAttribute("campaignhis");
+        		for(CampaignHis campaignh : campaignhis){
+        	
+        
+        %>
+        <div class="row" style="margin-left: 50px; margin-bottom: 30px">
+        
+        
+        
             <!-- Campaign Card -->
-	        <div class="col-md-4">
-	            <div class="card">
-	                <img class="card-img-top" src="images/crd1.webp" alt="Blood Drive Campaign">
+	        <div class="col-sm-3">
+	            <div class="card" style="width: 19rem">
+	                <img class="card-img-top" src="images/<%= campaignh.getImage() %>" alt="Blood Drive Campaign">
 	                <div class="card-body">
-	                    <h5 class="card-title">Kandy Blood Donation Campaign</h5>
-	                    <p class="card-text">Thank you, Kandy residents, for your generous blood donations. Your contributions have been invaluable in replenishing our Blood Bank. Your selfless act has saved countless lives. We are deeply grateful for your support</p>
+	                    <h5 class="card-title"><%= campaignh.getName() %></h5>
+	                    <p class="card-text"><%= campaignh.getDescription() %></p>
 	                </div>
 	            </div>
 	        </div>
-	        <div class="col-md-4">
-	            <div class="card">
-	                <img class="card-img-top" src="images/crd2.webp" alt="Social Media Content">
-	                <div class="card-body">
-	                    <h5 class="card-title">Galle Blood Donation Campaignt</h5>
-	                    <p class="card-text">Thank you, Galle residents, for your generous blood donations. Your contributions have been invaluable in replenishing our Blood Bank. Your selfless act has saved countless lives. We are deeply grateful for your support</p>
-	                </div>
-	            </div>
-	        </div>
-	        <div class="col-md-4">
-	            <div class="card">
-	                <img class="card-img-top" src="images/crd3.webp" alt="User Engagement">
-	                <div class="card-body">
-	                    <h5 class="card-title">Jaffna Blood Donation Campaign</h5>
-	                    <p class="card-text">Thank you, Jaffna residents, for your generous blood donations. Your contributions have been invaluable in replenishing our Blood Bank. Your selfless act has saved countless lives. We are deeply grateful for your support</p>
-	                </div>
-	            </div>
-	        </div>
+	        
+	        
+        </div>
+        <%}} %>
         </div>
     </div>
 </section>
