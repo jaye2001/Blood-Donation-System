@@ -41,15 +41,27 @@ public class OtpCheckServlet extends HttpServlet {
 	    int userpin = Integer.parseInt(request.getParameter("OTP"));
 	    
 	    if (userpin == otp) {
+	    	String type =(String) session.getAttribute("type");
+	    	
+	    	if(type.equals("admin")) {
+	    		session.setAttribute("type", "admin");
+//		    	Checklogin Checklogin = new Checklogin();
+		    	Checklogin.setLogin(true);
+		    	
+		    	session.removeAttribute("pin");
+		    	session.removeAttribute("email");
+		    	
+		    	response.sendRedirect("AdminAccessServlet");
+	    	}else {
 			
 	    	session.setAttribute("type", "donor");
-	    	Checklogin Checklogin = new Checklogin();
+	    	
 	    	Checklogin.setLogin(true);
-	    	request.setAttribute("Checklogin", Checklogin);
+
 	    	session.removeAttribute("pin");
 	    	session.removeAttribute("email");
-	    	RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Home.jsp");
-	    	requestDispatcher.forward(request, response);
+	    	response.sendRedirect("AdminAccessServlet");
+	    	}
 	    	
 		}
 	    
@@ -61,6 +73,12 @@ public class OtpCheckServlet extends HttpServlet {
 		
 	    
 		
+	}
+
+
+	private Checklogin Checklogin() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

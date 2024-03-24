@@ -2,14 +2,16 @@ package classes;
 
 public class Checklogin {
 	
-	private boolean status = false;
+	public static boolean status = false;
 	
-	public void setLogin(boolean status1) {
-		this.status = status1;
+	public static void setLogin(boolean status1) {
+	
+		status = status1;
+		
 		System.out.println("set");
 	}
 	
-	public boolean getStatus() {
+	public static boolean getStatus() {
 		return status;
 	}
 	
