@@ -26,7 +26,7 @@ public class Userdetails {
 	private String pnameString;
 	private String DnameString;
 	private String CnameString;
-	private String typeString;
+	private static String typeString;
 	
 	
 	
@@ -138,8 +138,8 @@ public class Userdetails {
 		return (year-yearuserint);
 	}
 	
-	public void setType(String type) {
-		this.typeString = type;
+	public static void setType(String type) {
+		typeString = type;
 	}
 	
 	public String getType() {
