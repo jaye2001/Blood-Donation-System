@@ -48,10 +48,10 @@
         <artifactId>heroku-maven-plugin</artifactId>
         <version>3.0.7</version>
       </plugin>-->
-      <plugin>
+     <!-- <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.3</version>
-      </plugin>
+      </plugin>-->
       <plugin>
 		 <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
