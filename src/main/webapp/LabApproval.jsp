@@ -22,21 +22,45 @@
     <!-- Navbar Content Here -->
 </nav>
 
-<!-- Lab Approval Form -->
-<div class="container mt-5">
-    <h2 class="mb-4">Blood Sample Approval</h2>
+	<!-- Lab Approval Form -->
+	<div class="container mt-5">
+	    <h2 class="mb-4">Blood Sample Approval</h2>
+	    
+	    <!-- Filter by Date -->
+	    <div class="row mb-3">
+	        <div class="col-md-4">
+	            <div class="input-group">
+	                <div class="input-group-prepend">
+	                    <span class="input-group-text" id="filterDatePrepend">Filter by Date</span>
+	                </div>
+	                <input type="date" class="form-control" name="filterDate" aria-describedby="filterDatePrepend">
+	                <div class="input-group-append">
+	                    <button class="btn btn-outline-secondary" type="submit">Filter</button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
     
-    <!-- Filter by Date -->
-    <div class="row mb-3">
-        <div class="col-md-4">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="filterDatePrepend">Filter by Date</span>
-                </div>
-                <input type="date" class="form-control" aria-describedby="filterDatePrepend">
-            </div>
-        </div>
-    </div>
+    
+		<!-- Filter by NIC Form -->
+		<form action="LabViewServlet" method="get">
+		    <div class="row mb-3">
+		        <div class="col-md-4">
+		            <div class="input-group">
+		                <div class="input-group-prepend">
+		                    <span class="input-group-text" id="filterNicPrepend">Search by NIC</span>
+		                </div>
+		                <input type="text" class="form-control" name="searchNIC" placeholder="Enter NIC" aria-describedby="filterNicPrepend">
+		                <div class="input-group-append">
+		                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</form>
+
+    
+    
     
     <!-- Blood Samples Table -->
     <div class="table-responsive">
@@ -46,6 +70,7 @@
                     <th>Sample ID</th>
                     <th>NIC</th>
                     <th>Date</th>
+                    <th>Blood Type</th>
                     <th>Status</th>
                     <th>Location</th>
                     <th>Actions</th>
@@ -60,6 +85,7 @@
                     <td><%= labView.getId() %></td>
                     <td><%= labView.getNic() %></td>
                     <td><%= labView.getDate() %></td>
+                    <td><%= labView.getBloodType() %></td>
                     <td><%= labView.getStatus() %></td>
                     <td><%= labView.getLocation() %></td>
                     <td>

@@ -37,6 +37,11 @@ public class LabViewServlet extends HttpServlet {
         	
             String sql = "SELECT * FROM Blood_Stock";
             pstmt = con.prepareStatement(sql);
+            
+            String sql1 = "SELECT bs.id, bs.NIC, bs.Date, bs.Status, bs.Location, d.Blood_Type " +
+                    "FROM Donor d " +
+                    "LEFT JOIN Blood_Stock bs ON bs.NIC = d.NIC";
+            pstmt = con.prepareStatement(sql1);
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
@@ -44,6 +49,7 @@ public class LabViewServlet extends HttpServlet {
                         rs.getInt("id"),
                         rs.getString("NIC"),
                         rs.getDate("Date"),
+					    rs.getString("Blood_Type"), 
                         rs.getString("Status"),
                         rs.getString("Location")
                 );
@@ -59,8 +65,7 @@ public class LabViewServlet extends HttpServlet {
             request.getRequestDispatcher("/LabApproval.jsp").forward(request, response);
 
         } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace(); // For server-side logging
-            // Return a user-friendly error message
+            e.printStackTrace(); 
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Error adding to Blood Stock: A donor with the provided NIC does not exist.");
         } 
         
