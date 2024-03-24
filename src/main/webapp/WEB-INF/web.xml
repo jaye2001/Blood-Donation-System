@@ -9,44 +9,6 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>campServlet</display-name>
-    <servlet-name>campServlet</servlet-name>
-    <servlet-class>servlets.campServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>campServlet</servlet-name>
-    <url-pattern>/campServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>CampaignPage</display-name>
-    <servlet-name>CampaignPage</servlet-name>
-    <servlet-class>servlets.CampaignPage</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CampaignPage</servlet-name>
-    <url-pattern>/view-campaigns</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DonationHistory</display-name>
-    <servlet-name>DonationHistory</servlet-name>
-    <servlet-class>servlets.DonationHistory</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DonationHistory</servlet-name>
-    <url-pattern>/DonationHistory</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>RequestedBloodServlet</display-name>
-    <servlet-name>RequestedBloodServlet</servlet-name>
-    <servlet-class>servlets.RequestedBloodServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RequestedBloodServlet</servlet-name>
-    <url-pattern>/RequestedBloodServlet</url-pattern>
-  </servlet-mapping>
+
+
 </web-app>

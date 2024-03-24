@@ -1,4 +1,4 @@
-<%@ page import="classes.RequestedBlood" %>
+<%@ page import="classes.ApproveBlood" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -6,10 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>History</title>
+<title>Approve Blood</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/main.css" rel="stylesheet">
-    <link href="css/Donor.css" rel="stylesheet">
     <link href="css/hospital req.css" rel="stylesheet">
 </head>
 <body>
@@ -44,39 +43,56 @@
 </nav>
 
 <div class="container">
-    <div class="title">Donation History</div>
+    <div class="title">Approve Blood Requests</div>
     <div class="history-table">
         <table class="table">
             <thead>
                 <tr>
-                    <th>Hospital ID</th>
-                    <th>Hospital Name</th>
+                    
                     <th>Blood type</th>
+                    <th>Available amount</th>
                     <th>Requested amount</th>
                 </tr>
             </thead>
             <tbody>
                 <%
-        	if(request.getAttribute("reqblood")==null){
-        		response.sendRedirect("RequestedBloodServlet");
+        	if(request.getAttribute("approvebl")==null){
+        		response.sendRedirect("ApproveBloodServlet");
         	}else{
-        		List<RequestedBlood> reqblood = (List<RequestedBlood>) request.getAttribute("reqblood");
-        		for(RequestedBlood rblood : reqblood){
+        		List<ApproveBlood> approvebl = (List<ApproveBlood>) request.getAttribute("approvebl");
+        		for(ApproveBlood approveblood : approvebl){
         	
         
         %>
                 <tr>
-                    <td><%= rblood.getHospitalId() %></td>
-                    <td><%= rblood.getHospitalName() %></td>
-                    <td><%= rblood.getBloodType() %></td>
-                    <td><%= rblood.getAmount() %></td>
+                    <td><%= approveblood.getBloodType() %></td>
+                    <td><%= approveblood.getAvailable() %></td>
+                    <td><%= approveblood.getRequested() %></td>
+  	                
                     <td>
-                    <form action="ApproveBloodServlet" method="post">
-                    	<input type="hidden" name="blood_type" value="<%= rblood.getBloodType() %>">
-                    	<input type="hidden" name="requested_amount" value="<%= rblood.getAmount() %>">
-					    <div class="button">
-					        <input type="submit" value="View more">
-					    </div>
+                    <form action="ApproveUpdate" method="post">
+                    <input type="hidden" name="blood_type" value="<%= approveblood.getBloodType() %>">
+                    <input type="hidden" name="requested_amount" value="<%= approveblood.getAvailable() %>">
+    
+				    <div class="button">
+				        <input type="submit" value="Approve">
+				    </div>
+					</form>
+        			</td>
+        			<td>
+                    <form action="CustomApprove" method="post">
+                    <input type="hidden" name="blood_type" value="<%= approveblood.getBloodType() %>">
+                    
+                    <div class="input-box">
+                		
+                			<input type="text" name="custom"  placeholder="Enter amount" required>
+           			 </div>
+           			 </td>
+           			 <td>
+    
+				    <div class="button">
+				        <input type="submit" value="Custom">
+				    </div>
 					</form>
         			</td>
                 </tr>
