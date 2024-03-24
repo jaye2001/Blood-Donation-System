@@ -11,9 +11,9 @@
 <dependencies>
     <!-- Jakarta Servlet API -->
     <dependency>
-    <groupId>jakarta.servlet</groupId>
+    <groupId>com.guicedee.services</groupId>
     <artifactId>jakarta.servlet-api</artifactId>
-    <version>6.1.0-M2</version>
+    <version>1.2.2.1-jre17</version>
 </dependency>
 
     <!-- MySQL Connector/J -->
