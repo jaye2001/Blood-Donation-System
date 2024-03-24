@@ -16,15 +16,15 @@
       <div class="main-content">
             
 
-          <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(https://steamuserimages-a.akamaihd.net/ugc/792007521116448905/F7A121A3F7A929FFB4DBC3AE241B3B4B6EAAED1D/); background-size: cover; background-position: center top;">
+          <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px;  background-size: cover; background-position: center top;">
           
             <span class="mask bg-gradient-default opacity-8"></span>
           
             <div class="container-fluid d-flex align-items-center">
               <div class="row">
                 <div class="col-lg-7 col-md-10">
-                  <h1 class="display-2 text-white">Hello Jesse</h1>
-                  <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+                  <h1 class="display-2 text-white">Hello!</h1>
+                  
                   
                   <% Userdetails Userdetails = (Userdetails) request.getAttribute("Userdetails"); 
                   
