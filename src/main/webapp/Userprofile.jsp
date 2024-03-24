@@ -71,7 +71,7 @@
                     </div>
                     <div class="text-center">
                       <h3>
-                        <%= Userdetails.getFnameString() + "  " + Userdetails.getLnameString()  %><span class="font-weight-light">, <%=Userdetails.getAge() %></span>
+                        <%= Userdetails.getFnameString() + "  " + Userdetails.getLnameString()  %><span class="font-weight-light">, <%= Userdetails.getAge() %></span>
                       </h3>
                       <label></label>
                                         

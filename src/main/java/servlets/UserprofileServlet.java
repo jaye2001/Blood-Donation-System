@@ -56,10 +56,12 @@ public class UserprofileServlet extends HttpServlet {
 			 HttpSession session = request.getSession();
 			
 			PreparedStatement st = con.prepareStatement("call select_user_email( ? );");
-			st.setString(1, (String) session.getAttribute("nic"));
+			st.setString(1, (String) session.getAttribute("NICnum"));
 			ResultSet rs = st.executeQuery();
 		
 			Userdetails Userdetails = new Userdetails();
+			System.out.println((String) session.getAttribute("NICnum"));
+			System.out.println("run userprofileservlet");
 			 
 			while (rs.next()) {
 				
@@ -80,7 +82,7 @@ public class UserprofileServlet extends HttpServlet {
 			st.close();
 			
 			
-		    session.setAttribute("nic", request.getParameter("nic") );
+		    //session.setAttribute("nic", request.getParameter("nic") );
 			con.close();
 			
 		} catch (ClassNotFoundException | SQLException e) {

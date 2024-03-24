@@ -27,7 +27,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="home.jsp">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                
 	  		
                  <% Userdetails Userdetails = (Userdetails) request.getAttribute("Userdetails"); 
                   
@@ -35,8 +35,9 @@
                   {
                   
                   %>
-                  
+                  <li class="nav-item">
                  		<a class="nav-link" href="Dashboard.jsp">Dashboard</a>
+                 </li>
                  
                  <% } %> 
                 
@@ -49,7 +50,7 @@
         
         
                     
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="Campaign.jsp">Campaigns</a>
                 </li>

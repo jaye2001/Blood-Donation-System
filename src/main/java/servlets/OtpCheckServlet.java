@@ -33,6 +33,8 @@ public class OtpCheckServlet extends HttpServlet {
 	    // get session attributes from login servlet
 	    HttpSession session = request.getSession();
 	    String emailString = (String) session.getAttribute("email");
+	    String nicString = (String) session.getAttribute("nic");
+	    
 	    
 	    int otp = (int) session.getAttribute("pin");
 	    
@@ -51,6 +53,8 @@ public class OtpCheckServlet extends HttpServlet {
 		    	session.removeAttribute("pin");
 		    	session.removeAttribute("email");
 		    	
+		    	session.setAttribute("NICnum", nicString);
+		    	
 		    	response.sendRedirect("AdminAccessServlet");
 	    	}else {
 			
@@ -60,6 +64,7 @@ public class OtpCheckServlet extends HttpServlet {
 
 	    	session.removeAttribute("pin");
 	    	session.removeAttribute("email");
+	    	session.setAttribute("NICnum", nicString);
 	    	response.sendRedirect("AdminAccessServlet");
 	    	}
 	    	
