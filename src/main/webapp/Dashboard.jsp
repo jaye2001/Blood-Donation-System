@@ -147,6 +147,13 @@
                    		 </div>
                		 </a>
                 </div>
+                <div class="col-lg-3 col-md-6">
+                	<a href="HospitalRegister.jsp">
+                    	<div class="dashboard-tile" >
+                        	<h4>Update Profile</h4>
+                   		 </div>
+               		 </a>
+                </div>
             </div>
         </main>
     </div>
