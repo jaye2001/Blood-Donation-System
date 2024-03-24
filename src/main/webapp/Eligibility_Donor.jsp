@@ -90,24 +90,24 @@
          <h5 class="card-header">Update Person Details</h5>
         <div class="card-body">
             <!-- Form Start -->
-            <form action="UpdatePersonServlet" method="post">
+            <form action="SearchPersonServlet" method="post">
                 
                 <!-- NIC -->
                 <div class="form-group">
                     <label for="nicInput">NIC</label>
-                    <input type="text" class="form-control" id="nicInput" name="nic" placeholder="Enter NIC">
+                    <input type="text" class="form-control" id="nicInput" name="nic" placeholder="NIC">
                 </div>
                 
                 <!-- Name -->
                 <div class="form-group">
                     <label for="nameInput">Name</label>
-                    <input type="text" class="form-control" id="nameInput" name="name" placeholder="Enter Full Name">
+                    <input type="text" class="form-control" id="nameInput" name="name" placeholder="Name">
                 </div>
                 
                 <!-- Email -->
                 <div class="form-group">
                     <label for="emailInput">Email</label>
-                    <input type="email" class="form-control" id="emailInput" name="email" placeholder="Enter Email">
+                    <input type="email" class="form-control" id="emailInput" name="email" placeholder="Email">
                 </div>
                 
                 <!-- Eligibility Selection -->
