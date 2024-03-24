@@ -76,7 +76,7 @@
                       <label></label>
                                         
                       <hr class="my-4">
-                      <a href="#">History</a>
+                      <a href="DonationHistory?nic=<%= (String) session.getAttribute("nic") %>">History</a>
                     </div>
                   </div>
                 </div>

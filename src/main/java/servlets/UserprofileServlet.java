@@ -78,6 +78,9 @@ public class UserprofileServlet extends HttpServlet {
 		   
 			
 			st.close();
+			
+			
+		    session.setAttribute("nic", request.getParameter("nic") );
 			con.close();
 			
 		} catch (ClassNotFoundException | SQLException e) {
