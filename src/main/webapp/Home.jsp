@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@page import="classes.Checklogin" %>
+  <%@page import="classes.Userdetails" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,30 @@
                     <a class="nav-link" href="home.jsp">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="campaign.jsp">Campaigns</a>
+	  		
+                 <% Userdetails Userdetails = (Userdetails) request.getAttribute("Userdetails"); 
+                  
+                  if (Userdetails.getType() == "admin" && Userdetails.getType() != null)
+                  {
+                  
+                  %>
+                  
+                 		<a class="nav-link" href="Dashboard.jsp">Dashboard</a>
+                 
+                 <% } %> 
+                
+                  
+                 		 
+                 
+                 
+        
+        
+        
+        
+                    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Campaign.jsp">Campaigns</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -39,8 +63,8 @@
             </ul>
         </div>
         
-        <%Checklogin checklogin = (Checklogin) request.getAttribute("Checklogin") ;
-        	if(checklogin.getStatus() == true){	
+        <%//Checklogin checklogin = (Checklogin) request.getAttribute("Checklogin") ;
+        	if(Checklogin.getStatus() == true){	
         
         %>
         
