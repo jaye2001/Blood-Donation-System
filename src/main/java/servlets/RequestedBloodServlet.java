@@ -59,6 +59,9 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 				rblood.setValues(rs.getInt("hospital_id"),rs.getString("blood_type"),rs.getInt("liters"),rs.getString("Name"));
 				reqblood.add(rblood);
 			}
+			
+//			HttpSession session = request.getSession();
+//		    session.setAttribute("blood_type", request.getParameter("blood_type") );
 			con.close();
 			request.setAttribute("reqblood", reqblood);
 			RequestDispatcher rd = request.getRequestDispatcher("ViewBloodRequests.jsp");
