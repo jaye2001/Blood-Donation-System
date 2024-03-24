@@ -10,20 +10,21 @@
   </properties>
 <dependencies>
     <!-- Jakarta Servlet API -->
-    <dependency>
-    <groupId>com.guicedee.services</groupId>
-    <artifactId>jakarta.servlet-api</artifactId>
-    <version>1.2.2.1-jre17</version>
-</dependency>
-
-    <!-- MySQL Connector/J -->
-   <dependency>
+    <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+<dependency>
     <groupId>jakarta.servlet</groupId>
     <artifactId>jakarta.servlet-api</artifactId>
     <version>6.1.0-M2</version>
     <scope>provided</scope>
 </dependency>
 
+
+    <!-- MySQL Connector/J -->
+   <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.33</version>
+</dependency>
 
     <!-- JavaMail API -->
     <dependency>
