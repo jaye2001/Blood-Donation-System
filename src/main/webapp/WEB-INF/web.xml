@@ -26,5 +26,57 @@
     <servlet-name>CampaignPage</servlet-name>
     <url-pattern>/view-campaigns</url-pattern>
   </servlet-mapping>
-  
+
+  <servlet>
+    <description></description>
+    <display-name>DonationHistory</display-name>
+    <servlet-name>DonationHistory</servlet-name>
+    <servlet-class>servlets.DonationHistory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DonationHistory</servlet-name>
+    <url-pattern>/DonationHistory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RequestedBloodServlet</display-name>
+    <servlet-name>RequestedBloodServlet</servlet-name>
+    <servlet-class>servlets.RequestedBloodServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestedBloodServlet</servlet-name>
+    <url-pattern>/RequestedBloodServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ApproveBloodServlet</display-name>
+    <servlet-name>ApproveBloodServlet</servlet-name>
+    <servlet-class>servlets.ApproveBloodServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApproveBloodServlet</servlet-name>
+    <url-pattern>/ApproveBloodServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ApproveUpdate</display-name>
+    <servlet-name>ApproveUpdate</servlet-name>
+    <servlet-class>servlets.ApproveUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApproveUpdate</servlet-name>
+    <url-pattern>/ApproveUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CustomApprove</display-name>
+    <servlet-name>CustomApprove</servlet-name>
+    <servlet-class>servlets.CustomApprove</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomApprove</servlet-name>
+    <url-pattern>/CustomApprove</url-pattern>
+  </servlet-mapping>
+
 </web-app>
+

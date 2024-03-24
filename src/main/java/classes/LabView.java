@@ -9,6 +9,7 @@ public class LabView implements Serializable {
     private int id;
     private String nic;
     private Date date;
+	private String bloodType; 
     private String status;
     private String location;
 
@@ -16,10 +17,11 @@ public class LabView implements Serializable {
         super();
     }
 
-    public LabView(int id, String nic, Date date, String status, String location) {
+	public LabView(int id, String nic, Date date, String bloodType, String status, String location) {
         this.id = id;
         this.nic = nic;
         this.date = date;
+	    this.bloodType = bloodType; 
         this.status = status;
         this.location = location;
     }
@@ -47,7 +49,17 @@ public class LabView implements Serializable {
     public void setDate(Date date) {
         this.date = date;
     }
-
+    
+	
+	 public String getBloodType() {
+		 return bloodType; 
+	}
+	 
+	 public void setBloodType(String bloodType) { 
+		 this.bloodType = bloodType; 
+	}
+	 
+    
     public String getStatus() {
         return status;
     }
