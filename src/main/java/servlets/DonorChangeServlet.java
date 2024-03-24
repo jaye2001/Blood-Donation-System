@@ -15,6 +15,8 @@ import java.io.IOException;
 
 import java.io.PrintWriter;
 
+import classes.Userdetails;
+
 
 
 
@@ -41,7 +43,9 @@ public class DonorChangeServlet extends HttpServlet {
 			 HttpSession session = request.getSession();
 			
 			 String nicString = request.getParameter("NIC");
-			 session.setAttribute("nic", nicString);
+			 Userdetails.setType("admin");
+			 session.setAttribute("NICnum", nicString);
+			 session.setAttribute("type", "admin");
 			 
 			 response.sendRedirect("UserprofileServlet");
 			
