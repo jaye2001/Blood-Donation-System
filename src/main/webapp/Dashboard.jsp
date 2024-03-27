@@ -104,6 +104,23 @@
                    		 </div>
                		 </a>
                 </div>
+                
+                <div class="col-lg-3 col-md-6">
+                	<a href="CampaignRegister.jsp">
+                    	<div class="dashboard-tile" >
+                        	<h4>Register a Campaign</h4>
+                   		 </div>
+               		 </a>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                	<a href="HospitalRegister.jsp">
+                    	<div class="dashboard-tile" >
+                        	<h4>Register Hospital</h4>
+                   		 </div>
+               		 </a>
+                </div>
+                
                 <div class="col-lg-3 col-md-6">
                 	<a href="Donated_Place.jsp">
                     	<div class="dashboard-tile" >
@@ -140,13 +157,7 @@
                    		 </div>
                		 </a>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                	<a href="HospitalRegister.jsp">
-                    	<div class="dashboard-tile" >
-                        	<h4>Register Hospital</h4>
-                   		 </div>
-               		 </a>
-                </div>
+                
                 <div class="col-lg-3 col-md-6">
                 	<a href="donorprofilechange.jsp">
                     	<div class="dashboard-tile" >
