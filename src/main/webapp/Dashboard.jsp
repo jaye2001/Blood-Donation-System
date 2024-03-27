@@ -90,58 +90,67 @@
             <!-- Clickable Tiles -->
             <div class="row">
 				 <div class="col-lg-3 col-md-6">
-                	<a href="AddAdmin.jsp">
+                	<a href="Add_Admin.jsp">
                     	<div class="dashboard-tile" >
-                        	<h4>Add Admin</h4>
+                        	<h4>Register Admin</h4>
                    		 </div>
                		 </a>
                 </div>
+                
                 <div class="col-lg-3 col-md-6">
-                	<a href="#">
-                    	<div class="dashboard-tile" >
-                        	<h4>Update Admin</h4>
-                   		 </div>
-               		 </a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                	<a href="AddDonor.jsp">
+                	<a href="Add_Donor.jsp">
                     	<div class="dashboard-tile" >
                         	<h4>Register Donor</h4>
                    		 </div>
                		 </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                	<a href="#">
+                	<a href="Donated_Place.jsp">
                     	<div class="dashboard-tile" >
-                        	<h4>Update Donor</h4>
+                        	<h4>Mark Blood Donation</h4>
                    		 </div>
                		 </a>
                 </div>
+                
                <div class="col-lg-3 col-md-6">
-                	<a href="#">
+                	<a href="LabApproval.jsp">
                     	<div class="dashboard-tile" >
-                        	<h4>Blood Stock</h4>
+                        	<h4>Lab Approval</h4>
                    		 </div>
                		 </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                	<a href="reqDonor.jsp">
+                	<a href="ReqDonor.jsp">
                     	<div class="dashboard-tile" >
-                        	<h4>Request From Donot</h4>
+                        	<h4>Request From Donor</h4>
                    		 </div>
                		 </a>
                 </div>
                <div class="col-lg-3 col-md-6">
-                	<a href="#">
+                	<a href="ViewBloodRequests.jsp">
                     	<div class="dashboard-tile" >
-                        	<h4>#</h4>
+                        	<h4>View Blood Requests</h4>
                    		 </div>
                		 </a>
                 </div>
-                               <div class="col-lg-3 col-md-6">
-                	<a href="#">
+                <div class="col-lg-3 col-md-6">
+                	<a href="Eligibility_Donor.jsp">
                     	<div class="dashboard-tile" >
-                        	<h4>#</h4>
+                        	<h4>Update Donor Eligibility</h4>
+                   		 </div>
+               		 </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                	<a href="HospitalRegister.jsp">
+                    	<div class="dashboard-tile" >
+                        	<h4>Register Hospital</h4>
+                   		 </div>
+               		 </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                	<a href="donorprofilechange.jsp">
+                    	<div class="dashboard-tile" >
+                        	<h4>Update Profile</h4>
                    		 </div>
                		 </a>
                 </div>

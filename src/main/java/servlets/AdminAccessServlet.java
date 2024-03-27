@@ -38,8 +38,8 @@ import classes.Userdetails;
  * Servlet implementation class AddDonerServlet
  */
 @MultipartConfig
-@WebServlet("/UserprofileServlet")
-public class UserprofileServlet extends HttpServlet {
+@WebServlet("/AdminAccessServlet")
+public class AdminAccessServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
@@ -56,12 +56,10 @@ public class UserprofileServlet extends HttpServlet {
 			 HttpSession session = request.getSession();
 			
 			PreparedStatement st = con.prepareStatement("call select_user_email( ? );");
-			st.setString(1, (String) session.getAttribute("NICnum"));
+			st.setString(1, (String) session.getAttribute("nic"));
 			ResultSet rs = st.executeQuery();
 		
 			Userdetails Userdetails = new Userdetails();
-			System.out.println((String) session.getAttribute("NICnum"));
-			System.out.println("run userprofileservlet");
 			 
 			while (rs.next()) {
 				
@@ -73,7 +71,7 @@ public class UserprofileServlet extends HttpServlet {
 				
 			}
 			request.setAttribute("Userdetails", Userdetails);
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Userprofile.jsp");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Home.jsp");
 			requestDispatcher.include(request, response);
 			
 			
@@ -82,7 +80,7 @@ public class UserprofileServlet extends HttpServlet {
 			st.close();
 			
 			
-		    //session.setAttribute("nic", request.getParameter("nic") );
+		    session.setAttribute("nic", request.getParameter("nic") );
 			con.close();
 			
 		} catch (ClassNotFoundException | SQLException e) {

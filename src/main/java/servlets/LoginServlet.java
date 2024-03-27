@@ -40,6 +40,7 @@ public class LoginServlet extends HttpServlet {
 	    PrintWriter out = response.getWriter();
 		boolean login = false;
 		String emailString;
+		String type;
 		Connection con;
 		
 		try {
@@ -54,6 +55,7 @@ public class LoginServlet extends HttpServlet {
 			while (rs.next()) {
 				login = true;
 				 emailString = rs.getString("email");
+				 type = rs.getString("type");
 				 
 				 if (login == true) {
 						PinGenarate pin = new PinGenarate();
@@ -94,7 +96,8 @@ public class LoginServlet extends HttpServlet {
 					    HttpSession session = request.getSession();
 					    session.setAttribute("email", emailString );
 					    session.setAttribute("pin", pinnumber);
-					    session.setAttribute("nic", NIC);					    
+					    session.setAttribute("nic", NIC);	
+					    session.setAttribute("type", type);
 					    RequestDispatcher requestDispatcher = 
 	 		 	    			request.getRequestDispatcher("/otpenter.jsp");
 	 		 			requestDispatcher.forward(request, response);

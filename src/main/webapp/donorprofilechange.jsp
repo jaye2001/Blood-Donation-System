@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Admin</title>
+    <title>Change Donor Details</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet"  href="css/addadmin.css"> 
      <link rel="stylesheet" href="css/main.css">
@@ -74,38 +74,11 @@
 
 <!-- Add Admin Form -->
 <div class="container">
-    <h2>Add Admin</h2>
-    <form id="addAdminForm" action="AddAdminServlet" method ="post" >
+    <h2>Change User Profile</h2>
+    <form id="addAdminForm" action="DonorChangeServlet" method ="post" >
         <div class="form-group">
-            <label for="adminFName">First Name</label>
-            <input type="text" class="form-control" id="adminName" name="adminFName" required>
-            </div>
-            <div class="form-group">
-            <label for="adminLName">Last Name</label>
-            <input type="text" class="form-control" id="adminName" name="adminLName" required>
-            </div>
-         <div class="form-group">
-            <label for="adminNIC">NIC</label>
-            <input type="text" class="form-control" id="adminNIC" name="adminNIC" required>
-        </div>   
-        <div class="form-group">
-            <label for="adminEmail">Email</label>
-            <input type="email" class="form-control" id="adminEmail" name="adminEmail" required>
-        </div>
-        <div class="form-group">
-            <label for="adminMobile">Mobile No</label>
-            <input type="tel" class="form-control" id="adminMobile" name="adminMobile" required>
-        </div>
-        <div class="form-group">
-            <label for="adminUsername">Username</label>
-            <input type="text" class="form-control" id="adminUsername" name="adminUsername" required>
-        </div>
-        <div class="form-group">
-            <label for="adminPassword">Password</label>
-            <input type="password" class="form-control" id="adminPassword" name="adminPassword" required>
-            <small id="passwordHelpBlock" class="form-text text-muted">
-                <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
-            </small>
+            <label for="adminFName">NIC</label>
+            <input type="text" class="form-control" id="adminName" name="NIC" required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

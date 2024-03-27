@@ -26,29 +26,29 @@ public class Userdetails {
 	private String pnameString;
 	private String DnameString;
 	private String CnameString;
-	private String typeString;
+	private static String typeString;
 	
 	
 	
-	public void setUser(String nic, String fname, String lname, String email, Date dob, String gender, String pht, String phn, String address, 
-						String blood, int weight, int province, int distric, int city, String pname, String dname, String cname){
+	public  void setUser(String nic, String fname, String lname, String email, Date dob, String gender, String pht, String phn, String address, 
+						String blood, int _weight, int province, int distric, int city, String pname, String dname, String cname){
 		
-		this.nICString = nic;
-		this.fnameString = fname;
-		this.lnameString = lname;
-		this.emailString = email;
-		this.dOBDate = dob;
-		this.genderString = gender;
-		this.photopathString = pht;
-		this.addressString = address;
-		this.bloodtypeString = blood;
-		this.weight = weight;
-		this.provinceid = province;
-		this.districtid = distric;
-		this.cityid = city;
-		this.pnameString = pname;
-		this.DnameString = dname;
-		this.CnameString = cname;
+		nICString = nic;
+		fnameString = fname;
+		lnameString = lname;
+		emailString = email;
+		dOBDate = dob;
+		genderString = gender;
+		photopathString = pht;
+		addressString = address;
+		bloodtypeString = blood;
+		weight = _weight;
+		provinceid = province;
+		districtid = distric;
+		cityid = city;
+		pnameString = pname;
+		DnameString = dname;
+		CnameString = cname;
 		System.out.println(nICString);
 	}
 	
@@ -138,8 +138,8 @@ public class Userdetails {
 		return (year-yearuserint);
 	}
 	
-	public void setType(String type) {
-		this.typeString = type;
+	public static void setType(String type) {
+		typeString = type;
 	}
 	
 	public String getType() {
