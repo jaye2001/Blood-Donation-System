@@ -79,7 +79,7 @@
     <div class="card">
         <div class="card-body">
             <h2 class="card-title text-center">Request From Donor</h2>
-            <form id="donorRequestForm" class="pt-3">
+            <form id="donorRequestForm" class="pt-3" onSubmit="submitFunction()">
                 <h5>Select Blood Type(s):</h5>
                 <div class="form-check">
                     <!-- Repeat this block for each blood type -->
@@ -132,6 +132,12 @@
     </div>
 </div>
 
+<script>
+function submitFunction() {
+	alert('EMAIL SEND');
+}
+
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

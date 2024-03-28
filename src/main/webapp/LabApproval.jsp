@@ -15,6 +15,36 @@
     <style>
         /* Additional custom styles can be added here */
     </style>
+    <script>
+    function setSampleStatus(id, status) {
+    	console.log("ABCD");
+    	const data = {
+    			id, 
+    			status
+    	};
+    	  
+    	fetch('http://localhost:8080/BLOOD_DONATION_SYSTEM/LabBloodApproveServlet', {
+    	    method: 'POST',
+    	    headers: {
+    	      'Content-Type': 'application/json',
+    	    },
+    	    body: JSON.stringify(data)
+    	  })
+    	  .then(response => {
+    	    if (!response.ok) {
+    	      throw new Error('Network response was not ok ' + response.statusText);
+    	    }
+    	    return response.json();
+    	  })
+    	  .then(data => {
+    	    console.log('Success:', data);
+    	    window.location.reload(); 
+    	  })
+    	  .catch((error) => {
+    	    console.error('Error:', error); // Handle errors
+    	  });
+    	}
+    </script>
 </head>
 <body>
 
@@ -50,7 +80,7 @@
 		                <div class="input-group-prepend">
 		                    <span class="input-group-text" id="filterNicPrepend">Search by NIC</span>
 		                </div>
-		                <input type="text" class="form-control" name="searchNIC" placeholder="Enter NIC" aria-describedby="filterNicPrepend">
+		                <input type="text" class="form-control" name="search_query" placeholder="Enter NIC" aria-describedby="filterNicPrepend">
 		                <div class="input-group-append">
 		                    <button class="btn btn-outline-secondary" type="submit">Search</button>
 		                </div>
@@ -74,6 +104,7 @@
                     <th>Status</th>
                     <th>Location</th>
                     <th>Actions</th>
+                    <th>Remove Eligibility</th>
                 </tr>
             </thead>
             <tbody>
@@ -89,8 +120,22 @@
                     <td><%= labView.getStatus() %></td>
                     <td><%= labView.getLocation() %></td>
                     <td>
+                    <% if(labView.getStatus().equals("Pending")) { %>
+                        <a href="LabBloodApproveServlet?NIC=<%= labView.getNic() %>&status=Approved">
                         <button class="btn btn-sm btn-success btn-approve"><i class="fas fa-check"></i> Approve</button>
+                        </a>
+                        <a href="LabBloodApproveServlet?NIC=<%= labView.getNic() %>&status=Rejected">
                         <button class="btn btn-sm btn-danger btn-reject"><i class="fas fa-times"></i> Reject</button>
+                        </a>
+                    <% } else { %>
+                    	<button class="btn btn-sm btn-success btn-approve" disabled><i class="fas fa-check"></i> Approve</button>
+                        <button class="btn btn-sm btn-danger btn-reject" disabled><i class="fas fa-times"></i> Reject</button>
+                    <% } %>
+                    </td>
+                    <td>
+	                    <a href="DonorEligibilityServlet?NIC=<%= labView.getNic() %>">
+		                    <button class="btn btn-sm btn-danger btn-reject"><i class="fas fa-times"></i> Remove eligibility</button>
+        	            </a>
                     </td>
                 </tr>
                 <%
