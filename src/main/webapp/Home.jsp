@@ -29,7 +29,7 @@
                 </li>
                 
 	  		
-                 <% Userdetails Userdetails = (Userdetails) request.getAttribute("Userdetails"); 
+                 <%
                   
                   if (Userdetails.getType() == "admin" && Userdetails.getType() != null)
                   {
@@ -60,7 +60,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-
+                <%//Checklogin checklogin = (Checklogin) request.getAttribute("Checklogin") ;
+        	if(Checklogin.getStatus() == true){	
+        
+        %>
+                <li class="nav-item">
+                    <a class="nav-link" href="LogoutServlet">Logout</a>
+                </li>
+		<%} %>
             </ul>
         </div>
         

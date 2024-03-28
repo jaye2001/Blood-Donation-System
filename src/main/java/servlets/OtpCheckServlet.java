@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import classes.Checklogin;
+import classes.Userdetails;
 
 
 /**
@@ -49,6 +50,7 @@ public class OtpCheckServlet extends HttpServlet {
 	    		session.setAttribute("type", "admin");
 //		    	Checklogin Checklogin = new Checklogin();
 		    	Checklogin.setLogin(true);
+		    	Userdetails.setType("admin");
 		    	
 		    	session.removeAttribute("pin");
 		    	session.removeAttribute("email");
@@ -61,6 +63,7 @@ public class OtpCheckServlet extends HttpServlet {
 	    	session.setAttribute("type", "donor");
 	    	
 	    	Checklogin.setLogin(true);
+	    	Userdetails.setType("donor");
 
 	    	session.removeAttribute("pin");
 	    	session.removeAttribute("email");
