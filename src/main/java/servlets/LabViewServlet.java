@@ -23,6 +23,7 @@ public class LabViewServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<LabView> labViewList = new ArrayList<>();
         System.out.println("ABCD");
+        final String search_query = (String) request.getParameter("search_query");
         
 
         Connection con;
@@ -35,13 +36,16 @@ public class LabViewServlet extends HttpServlet {
             PreparedStatement pstmt = null;
             ResultSet rs;
         	
-            String sql = "SELECT * FROM Blood_Stock";
-            pstmt = con.prepareStatement(sql);
+//            String sql = "SELECT * FROM Blood_Stock";
+//            pstmt = con.prepareStatement(sql);
             
             String sql1 = "SELECT bs.id, bs.NIC, bs.Date, bs.Status, bs.Location, d.Blood_Type " +
                     "FROM Donor d " +
                     "LEFT JOIN Blood_Stock bs ON bs.NIC = d.NIC";
+            if (search_query != null) sql1 += " WHERE bs.NIC LIKE ?";
+            sql1 += " ORDER BY bs.Date DESC";
             pstmt = con.prepareStatement(sql1);
+            if (search_query != null) pstmt.setString(1, search_query + "%");
             rs = pstmt.executeQuery();
 
             while (rs.next()) {

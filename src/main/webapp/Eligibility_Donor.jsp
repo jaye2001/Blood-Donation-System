@@ -90,24 +90,28 @@
          <h5 class="card-header">Update Person Details</h5>
         <div class="card-body">
             <!-- Form Start -->
-            <form action="UpdatePersonServlet" method="post">
-                
+            <form action="SearchPersonServlet" method="post">
+                <% 
+                String donor_NIC = (String) request.getAttribute("donor_NIC");
+		   		String donor_name = (String) request.getAttribute("donor_name");
+		   		String donor_email = (String) request.getAttribute("donor_email");
+                %>
                 <!-- NIC -->
                 <div class="form-group">
                     <label for="nicInput">NIC</label>
-                    <input type="text" class="form-control" id="nicInput" name="nic" placeholder="Enter NIC">
+                    <input type="text" class="form-control" id="nicInput" name="nic" placeholder="NIC" value="<%= donor_NIC %>" disabled>
                 </div>
                 
                 <!-- Name -->
                 <div class="form-group">
                     <label for="nameInput">Name</label>
-                    <input type="text" class="form-control" id="nameInput" name="name" placeholder="Enter Full Name">
+                    <input type="text" class="form-control" id="nameInput" name="name" placeholder="Name" value="<%= donor_name %>" disabled>
                 </div>
                 
                 <!-- Email -->
                 <div class="form-group">
                     <label for="emailInput">Email</label>
-                    <input type="email" class="form-control" id="emailInput" name="email" placeholder="Enter Email">
+                    <input type="email" class="form-control" id="emailInput" name="email" placeholder="Email" value="<%= donor_email %>" disabled>
                 </div>
                 
                 <!-- Eligibility Selection -->

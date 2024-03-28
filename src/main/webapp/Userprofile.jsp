@@ -16,16 +16,20 @@
       <div class="main-content">
             
 
+
           <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-size: cover; background-position: center top;">
+
           
             <span class="mask bg-gradient-default opacity-8"></span>
           
             <div class="container-fluid d-flex align-items-center">
               <div class="row">
                 <div class="col-lg-7 col-md-10">
+
                  <% Userdetails Userdetails1 = (Userdetails) request.getAttribute("Userdetails1"); %>
                   <P class="display-2 text-white" style="font-weight: 10;">Hello <%= Userdetails1.getFnameString()%></p>
             
+
                   
                   <%  
                   
