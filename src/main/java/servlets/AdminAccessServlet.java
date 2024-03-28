@@ -59,18 +59,18 @@ public class AdminAccessServlet extends HttpServlet {
 			st.setString(1, (String) session.getAttribute("nic"));
 			ResultSet rs = st.executeQuery();
 		
-			Userdetails Userdetails = new Userdetails();
+			Userdetails Userdetails1 = new Userdetails();
 			 
 			while (rs.next()) {
 				
 				
 				Date sqlDate = rs.getDate("DOB");
-		        Userdetails.setUser(rs.getString("NIC"), rs.getString("Fname"),rs.getString("Lname"),rs.getString("email"),sqlDate ,rs.getString("gender"),rs.getString("phtpath"),rs.getString("phnNum"),rs.getString("address"),rs.getString("Blood_Type"),rs.getInt("weight"),rs.getInt("provinceid"),rs.getInt("DistricId"),rs.getInt("CityId"),rs.getString("Pname_en"),rs.getString("Dname_en"),rs.getString("Cname_en"));
+		        Userdetails1.setUser(rs.getString("NIC"), rs.getString("Fname"),rs.getString("Lname"),rs.getString("email"),sqlDate ,rs.getString("gender"),rs.getString("phtpath"),rs.getString("phnNum"),rs.getString("address"),rs.getString("Blood_Type"),rs.getInt("weight"),rs.getInt("provinceid"),rs.getInt("DistricId"),rs.getInt("CityId"),rs.getString("Pname_en"),rs.getString("Dname_en"),rs.getString("Cname_en"));
 				Userdetails.setType((String) session.getAttribute("type"));
 				//System.out.println(rs.getInt("id")+rs.getString("name_en"));
 				
 			}
-			request.setAttribute("Userdetails", Userdetails);
+			request.setAttribute("Userdetails1", Userdetails1);
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Home.jsp");
 			requestDispatcher.include(request, response);
 			

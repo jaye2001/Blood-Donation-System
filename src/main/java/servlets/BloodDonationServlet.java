@@ -1,5 +1,6 @@
 package servlets;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -35,13 +36,9 @@ public class BloodDonationServlet extends HttpServlet {
             pstmt.setString(3, location);
             pstmt.setString(4, stock);
 
-            int result = pstmt.executeUpdate();
+             pstmt.executeUpdate();
 
-            if (result > 0) {
-                request.setAttribute("successMessage", "The blood donation has been successfully recorded.");
-            } else {
-                request.setAttribute("errorMessage", "Unable to record the blood donation.");
-            }
+            
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("errorMessage", "Database error: " + ex.getMessage());
         } finally {
@@ -53,6 +50,7 @@ public class BloodDonationServlet extends HttpServlet {
             }
         }
         
-        request.getRequestDispatcher("Donated_Place.jsp").forward(request, response);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("Donated_Place.jsp");
+        requestDispatcher.include(request, response);
     }
 }

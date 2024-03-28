@@ -44,7 +44,7 @@
 </nav>
 
 <div class="container">
-    <div class="title">Donation History</div>
+    <div class="title">Blood Requests from Hospital</div>
     <div class="history-table">
         <table class="table">
             <thead>
