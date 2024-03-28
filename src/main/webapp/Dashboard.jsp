@@ -96,6 +96,13 @@
                    		 </div>
                		 </a>
                 </div>
+                <div class="col-lg-3 col-md-6">
+                	<a href="donorprofilechange.jsp">
+                    	<div class="dashboard-tile" >
+                        	<h4>Update Profile</h4>
+                   		 </div>
+               		 </a>
+                </div>
 				 <div class="col-lg-3 col-md-6">
                 	<a href="Add_Admin.jsp">
                     	<div class="dashboard-tile" >
@@ -121,9 +128,31 @@
                		 </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
+                	<a href="Eligibility_Donor.jsp">
+                    	<div class="dashboard-tile" >
+                        	<h4>Update Donor Eligibility</h4>
+                   		 </div>
+               		 </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
                 	<a href="ReqDonor.jsp">
                     	<div class="dashboard-tile" >
                         	<h4>Request From Donor</h4>
+                   		 </div>
+               		 </a>
+               		 </div>
+               		 <div class="col-lg-3 col-md-6">
+                	<a href="CampaignRegister.jsp">
+                    	<div class="dashboard-tile" >
+                        	<h4>Register Campaign</h4>
+                   		 </div>
+               		 </a>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                	<a href="HospitalRegister.jsp">
+                    	<div class="dashboard-tile" >
+                        	<h4>Register Hospital</h4>
                    		 </div>
                		 </a>
                 </div>
@@ -134,27 +163,9 @@
                    		 </div>
                		 </a>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                	<a href="Eligibility_Donor.jsp">
-                    	<div class="dashboard-tile" >
-                        	<h4>Update Donor Eligibility</h4>
-                   		 </div>
-               		 </a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                	<a href="HospitalRegister.jsp">
-                    	<div class="dashboard-tile" >
-                        	<h4>Register Hospital</h4>
-                   		 </div>
-               		 </a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                	<a href="donorprofilechange.jsp">
-                    	<div class="dashboard-tile" >
-                        	<h4>Update Profile</h4>
-                   		 </div>
-               		 </a>
-                </div>
+                
+                
+                
             </div>
         </main>
     </div>
