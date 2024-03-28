@@ -140,9 +140,10 @@ public class Userdetails {
 	
 	public static void setType(String type) {
 		typeString = type;
+		System.out.println(type);
 	}
 	
-	public String getType() {
+	public static String getType() {
 		return typeString;
 	}
 	

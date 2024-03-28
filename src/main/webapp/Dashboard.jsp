@@ -89,6 +89,13 @@
             </div>
             <!-- Clickable Tiles -->
             <div class="row">
+            	<div class="col-lg-3 col-md-6">
+                	<a href="Add_Donor.jsp">
+                    	<div class="dashboard-tile" >
+                        	<h4>Register Donor</h4>
+                   		 </div>
+               		 </a>
+                </div>
 				 <div class="col-lg-3 col-md-6">
                 	<a href="Add_Admin.jsp">
                     	<div class="dashboard-tile" >
@@ -97,14 +104,7 @@
                		 </a>
                 </div>
                 
-                <div class="col-lg-3 col-md-6">
-                	<a href="Add_Donor.jsp">
-                    	<div class="dashboard-tile" >
-                        	<h4>Register Donor</h4>
-                   		 </div>
-               		 </a>
-                </div>
-                
+
                 <div class="col-lg-3 col-md-6">
                 	<a href="CampaignRegister.jsp">
                     	<div class="dashboard-tile" >
@@ -120,6 +120,7 @@
                    		 </div>
                		 </a>
                 </div>
+
                 
                 <div class="col-lg-3 col-md-6">
                 	<a href="Donated_Place.jsp">
