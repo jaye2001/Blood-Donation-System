@@ -16,19 +16,20 @@
       <div class="main-content">
             
 
-          <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(https://steamuserimages-a.akamaihd.net/ugc/792007521116448905/F7A121A3F7A929FFB4DBC3AE241B3B4B6EAAED1D/); background-size: cover; background-position: center top;">
+          <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-size: cover; background-position: center top;">
           
             <span class="mask bg-gradient-default opacity-8"></span>
           
             <div class="container-fluid d-flex align-items-center">
               <div class="row">
                 <div class="col-lg-7 col-md-10">
-                  <h1 class="display-2 text-white">Hello Jesse</h1>
-                  <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+                 <% Userdetails Userdetails1 = (Userdetails) request.getAttribute("Userdetails1"); %>
+                  <P class="display-2 text-white" style="font-weight: 10;">Hello <%= Userdetails1.getFnameString()%></p>
+            
                   
-                  <% Userdetails Userdetails = (Userdetails) request.getAttribute("Userdetails"); 
+                  <%  
                   
-                  if (Userdetails.getType() == "admin")
+                  if (Userdetails.getType() != null && Userdetails.getType().equals("admin"))
                   {
                   
                   %>
@@ -71,12 +72,12 @@
                     </div>
                     <div class="text-center">
                       <h3>
-                        <%= Userdetails.getFnameString() + "  " + Userdetails.getLnameString()  %><span class="font-weight-light">, <%= Userdetails.getAge() %></span>
+                        <%= Userdetails1.getFnameString() + "  " + Userdetails1.getLnameString()  %><span class="font-weight-light">, <%= Userdetails1.getAge() %></span>
                       </h3>
                       <label></label>
                                         
                       <hr class="my-4">
-                      <a href="DonationHistory?nic=<%= (String) session.getAttribute("nic") %>">History</a>
+                      <a href="DonationHistory?nic=<%= Userdetails1.getNicString()  %>">History</a>
                     </div>
                   </div>
                 </div>
@@ -101,19 +102,19 @@
                                                   <div class="col-lg-4">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-username">NIC</label>
-                              <input type="text" id="nic" name="nic" class="form-control form-control-alternative" placeholder="Username" value="<%= Userdetails.getNicString() %>" disabled>
+                              <input type="text" id="nic" name="nic" class="form-control form-control-alternative" placeholder="Username" value="<%= Userdetails1.getNicString() %>" disabled>
                             </div>
                           </div>
                           <div class="col-lg-4">
                             <div class="form-group">
                               <label class="form-control-label"  for="input-email">Email address</label>
-                              <input type="email" id="email" name="email" class="form-control form-control-alternative" value="<%= Userdetails.getEmailString() %>" disabled>
+                              <input type="email" id="email" name="email" class="form-control form-control-alternative" value="<%= Userdetails1.getEmailString() %>" disabled>
                             </div>
                           </div>
                            <div class="col-lg-4">
                             <div class="form-group">
                               <label class="form-control-label"  for="input-email">Blood type</label>
-                              <input type="text" id="bltype" name="bloodtype" class="form-control form-control-alternative" value="<%= Userdetails.getBloodtypeString() %>" disabled>
+                              <input type="text" id="bltype" name="bloodtype" class="form-control form-control-alternative" value="<%= Userdetails1.getBloodtypeString() %>" disabled>
                             </div>
                           </div>
                           
@@ -121,25 +122,25 @@
                           <div class="col-lg-6">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-first-name">First name</label>
-                              <input type="text" id="fname" name="Fname" class="form-control form-control-alternative" placeholder="First name" value="<%= Userdetails.getFnameString() %>" disabled>
+                              <input type="text" id="fname" name="Fname" class="form-control form-control-alternative" placeholder="First name" value="<%= Userdetails1.getFnameString() %>" disabled>
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-last-name">Last name</label>
-                              <input type="text" id="lname" name="Lname" class="form-control form-control-alternative" placeholder="Last name" value="<%= Userdetails.getLnameString() %>" disabled>
+                              <input type="text" id="lname" name="Lname" class="form-control form-control-alternative" placeholder="Last name" value="<%= Userdetails1.getLnameString() %>" disabled>
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-last-name">DOB</label>
-                              <input type="text" id="dob" name="dob" class="form-control form-control-alternative" placeholder="Last name" value="<%= Userdetails.getDate() %>" disabled>
+                              <input type="text" id="dob" name="dob" class="form-control form-control-alternative" placeholder="Last name" value="<%= Userdetails1.getDate() %>" disabled>
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-last-name">Gender</label>
-                              <input type="text" id="gender" name="gender" class="form-control form-control-alternative" placeholder="Last name" value="<%= Userdetails.getGenderString() %>" disabled>
+                              <input type="text" id="gender" name="gender" class="form-control form-control-alternative" placeholder="Last name" value="<%= Userdetails1.getGenderString() %>" disabled>
                             </div>
                           </div>
                         </div>
@@ -152,36 +153,36 @@
                           <div class="col-md-12">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-address">Address</label>
-                              <input id="address" name="address" class="form-control form-control-alternative" placeholder="Home Address" value="<%= Userdetails.getAddresssString() %>" type="text" disabled>
+                              <input id="address" name="address" class="form-control form-control-alternative" placeholder="Home Address" value="<%= Userdetails1.getAddresssString() %>" type="text" disabled>
                             </div>
                           </div>
                         </div>
                          <div style="display: none;" id="location">
-                            	<a href="UserprofilechangestateServle?nic=<%= Userdetails.getNicString() %>" class="btn btn-info" onclick="editaccess()">Edit Location</a>
+                            	<a href="UserprofilechangestateServle?nic=<%= Userdetails1.getNicString() %>" class="btn btn-info" onclick="editaccess()">Edit Location</a>
                             </div>
                         <div class="row">
                           <div class="col-lg-4">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-city">City</label>
-                              <input type="text" id="city" class="form-control form-control-alternative" placeholder="City" value="<%= Userdetails.getCname() %>" disabled>
+                              <input type="text" id="city" class="form-control form-control-alternative" placeholder="City" value="<%= Userdetails1.getCname() %>" disabled>
                             </div>
                           </div>
                           <div class="col-lg-4">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-country">State</label>
-                              <input type="text" id="state" class="form-control form-control-alternative" placeholder="Country" value="<%= Userdetails.getDname() %>" disabled>
+                              <input type="text" id="state" class="form-control form-control-alternative" placeholder="Country" value="<%= Userdetails1.getDname() %>" disabled>
                             </div>
                           </div>
                           <div class="col-lg-4">
                             <div class="form-group focused">
                               <label class="form-control-label"  for="input-country">Provice</label>
-                              <input type="text" id="Province" class="form-control form-control-alternative" placeholder="Country" value="<%= Userdetails.getPname() %>" disabled>
+                              <input type="text" id="Province" class="form-control form-control-alternative" placeholder="Country" value="<%= Userdetails1.getPname() %>" disabled>
                             </div>
                             
                            
                             
                             <div style="display: none;" id="submit">
-                            <a href="UserprofileServlet?nic=<%= Userdetails.getNicString() %>" class="btn btn-info" >Cancel</a>
+                            <a href="UserprofileServlet?nic=<%= Userdetails1.getNicString() %>" class="btn btn-info" >Cancel</a>
                             <a class="btn btn-info"  onclick="submit()">Submit</a>
                             
                             </div>
@@ -200,7 +201,7 @@
         </div>
         
         <script>
-       <% if (Userdetails.getType() == "admin") {   %> 
+       <% if (Userdetails.getType() != null && Userdetails.getType().equals("admin")) {   %> 
         function editaccess() {
 			document.getElementById("nic").disabled = false;
 			document.getElementById("email").disabled = false;
@@ -216,7 +217,7 @@
 			document.getElementById("submit").style.display = "block";
 			document.getElementById("location").style.display = "block";
 			document.getElementById("dob").type = "date";
-			document.getElementById("dob").value = "<%= Userdetails.getDate() %>";
+			document.getElementById("dob").value = "<%= Userdetails1.getDate() %>";
 			
 		}
         
